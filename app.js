@@ -21,6 +21,7 @@ const app = express();
 // app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
 app.use(cookieParser());
 app.use(
   expressSession({
@@ -43,8 +44,8 @@ app.use(bindUserToViewLocals);
 
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
-app.use('/post', postRouter);
-app.use('/review', reviewRouter);
+// app.use('/post', postRouter);
+// app.use('/review', reviewRouter);
 
 
 //DEPLOYMENT// 
