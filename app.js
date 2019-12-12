@@ -8,15 +8,17 @@ const cookieParser = require('cookie-parser');
 const expressSession = require('express-session');
 const logger = require('morgan');
 const mongoose = require('mongoose');
-const serveFavicon = require('serve-favicon');
+// const serveFavicon = require('serve-favicon');
 const basicAuthenticationDeserializer = require('./middleware/basic-authentication-deserializer.js');
 const bindUserToViewLocals = require('./middleware/bind-user-to-view-locals.js');
 const indexRouter = require('./routes/index');
 const authenticationRouter = require('./routes/authentication');
+const postRouter = require('./routes/post');
+const reviewRouter = require('./routes/review');
 
 const app = express();
 
-app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
+// app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
 app.use(logger('dev'));
 app.use(express.urlencoded({ extended: true }));
 app.use(cookieParser());
@@ -41,6 +43,14 @@ app.use(bindUserToViewLocals);
 
 app.use('/', indexRouter);
 app.use('/authentication', authenticationRouter);
+app.use('/post', postRouter);
+app.use('/review', reviewRouter);
+
+
+//DEPLOYMENT// 
+// app.get('*', (req, res, next) => {
+//   res.sendFile(join(__dirname, 'client/build/index.html'));
+// });
 
 // Catch missing routes and forward to error handler
 app.use((req, res, next) => {
