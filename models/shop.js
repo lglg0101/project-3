@@ -31,7 +31,6 @@ const schema = new mongoose.Schema({
 //MAP LOCATION API SCHEMA HERE 
 
 
-  
 confirmationCode: String,
 
 image: {
