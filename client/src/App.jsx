@@ -4,6 +4,9 @@ import './App.css';
 import AuthenticationSignUpView from './views/authenticationView/SignUpView';
 import AuthenticationSignInView from './views/authenticationView/LoginView';
 import Navbar from "./components/Navbar";
+import HomePage from "./views/HomePage"
+
+
 
 class App extends Component {
 	constructor(props) {
@@ -50,6 +53,7 @@ class App extends Component {
                 verify={this.verifyAuthentication}
                 redirect="/error/401"
               /> */}
+							<Route exact path="/" component={HomePage} />
               <Route
                 path="/sign-up" 
                 render={props => (
