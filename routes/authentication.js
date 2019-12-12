@@ -9,6 +9,7 @@ const express = require('express');
 
 
 //SIGN UP
+
 // router.get('/sign-up', (req, res, next) => {
 //   res.render('auth/sign-up');
 // });
@@ -23,7 +24,7 @@ const express = require('express');
 // });
 
 router.post('/sign-up', (req, res, next) => {
-  const { username, email, password } = req.body;
+  const { username, email, city, role, image, password } = req.body;
   console.log("helloo", req.body);
   //const image = req.file.url;
   // let token = "";
@@ -42,10 +43,10 @@ router.post('/sign-up', (req, res, next) => {
       return User.create({
         username,
         email,
-        // city,
+        city,
         // coordinates,
-        // role,
-        //image,
+        role,
+        image,
         // confirmationCode: token,
         passwordHash: hash
       });
@@ -55,6 +56,7 @@ router.post('/sign-up', (req, res, next) => {
       req.session.user = user._id;
       res.json({ user });
     }) 
+    
     // .then(
     // transporter.sendMail({
     //   from: `Thrift Point<${process.env.EMAIL}>`,
