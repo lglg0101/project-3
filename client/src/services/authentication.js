@@ -1,13 +1,14 @@
-import axios from 'axios';
+import axios from "axios";
 
 const apiAuthenticationService = axios.create({
-  baseURL: '/authentication'
+  baseURL: "/authentication"
 });
 
 export const signIn = async data => {
   try {
     const response = await apiAuthenticationService.post(`/sign-in`, data);
-    return response.data.user;
+    console.log(response.data.auxuser);
+    return response.data.auxuser;
   } catch (error) {
     throw error;
   }
