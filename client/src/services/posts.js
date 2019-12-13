@@ -25,3 +25,13 @@ export const create = async post => {
     throw error;
   }
 };
+
+export const load = async id => {
+  try {
+    const response = await apiService.get(`/${id}`);
+    const post = response.data.post;
+    return post;
+  } catch (error) {
+    throw error;
+  }
+};
