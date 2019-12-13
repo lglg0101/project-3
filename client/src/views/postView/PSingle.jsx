@@ -34,7 +34,7 @@ class PostSingleView extends Component {
           <div>
             <img src={post.image} />
             <p>{post.text}</p>
-            {/* <Link to={`/${id}/edit`}>Edit Post</Link> */}
+            <Link to={`/${id}/edit`}>Edit Post</Link>
           </div>
         )}
       </main>

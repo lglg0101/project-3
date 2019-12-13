@@ -44,6 +44,20 @@ router.post(
   }
 );
 
+router.patch('/:id', async (req, res, next) => {
+  const { text } = req.body;
+  try {
+    const post = await Post.findByIdAndUpdate(req.params.id, {
+     
+      ...(text ? { text } : {})
+    }).exec();
+    res.json({ post });
+  } catch (error) {
+    next(error);
+  }
+});
+
+
 router.get("/:id", async (req, res, next) => {
   try {
     const post = await Post.findById(req.params.id)
@@ -55,4 +69,14 @@ router.get("/:id", async (req, res, next) => {
     next(error);
   }
 });
+
+router.delete('/:id', async (req, res, next) => {
+  try {
+    await Post.findByIdAndRemove(req.params.id).exec();
+    res.json({});
+  } catch (error) {
+    next(error);
+  }
+});
+
 module.exports = router;

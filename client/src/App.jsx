@@ -9,6 +9,7 @@ import CommunityView from "./views/CommunityView";
 import PostCreateView from "./views/postView/PCreate";
 import PostSingleView from "./views/postView/PSingle";
 import PostListView from "./views/postView/PList";
+import PostEditView from "./views/postView/PEdit"
 
 class App extends Component {
   constructor(props) {
@@ -62,6 +63,7 @@ class App extends Component {
             <Route exact path="/post/create" component={PostCreateView} />
             <Route exact path="/post/list" component={PostListView} />
             <Route exact path="/post/:id" component={PostSingleView} />
+            <Route path="/:id/edit" component={PostEditView} />
             <Route
               path="/sign-up"
               render={props => (
@@ -84,7 +86,7 @@ class App extends Component {
 
             {/* <Route path="/error/:code" component={} />
               <Route path="/" exact component={} />
-              <Route path="/:id/edit" component={} />
+             
               <Route path="/:id" component={} /> */}
             {/* <Redirect to="/error/404" /> */}
           </Switch>

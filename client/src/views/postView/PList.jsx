@@ -27,7 +27,7 @@ class PostListView extends Component {
       <main>
         {this.props.posts.map(post => (
           <Link key={post._id} to={`/post/${post._id}`}>
-            {(post.text && <h1>{post.text}</h1>) || <h5>Post not found</h5>}
+             <h1>{post.text}</h1>
             <img src={post.image} alt="" />
             <p>{post._author.username}</p>
           </Link>

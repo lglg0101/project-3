@@ -47,3 +47,19 @@ export const list = async () => {
     throw error;
   }
 };
+
+export const edit = async (id, post) => {
+  try {
+    await apiService.patch(`/${id}`, post);
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const remove = async id => {
+  try {
+    await apiService.delete(`/${id}`);
+  } catch (error) {
+    throw error;
+  }
+};
