@@ -19,8 +19,9 @@ const schema = new mongoose.Schema({
 
   shopId: String,
   userId: String,
+  rating: String
+}, 
 
-},
  {
     timestamps: true
   }

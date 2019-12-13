@@ -9,7 +9,8 @@ import CommunityView from "./views/CommunityView";
 import PostCreateView from "./views/postView/PCreate";
 import PostSingleView from "./views/postView/PSingle";
 import PostListView from "./views/postView/PList";
-import PostEditView from "./views/postView/PEdit"
+import PostEditView from "./views/postView/PEdit";
+import Rating from "react-rating"
 
 class App extends Component {
   constructor(props) {
@@ -48,6 +49,10 @@ class App extends Component {
             user={this.state.user}
             changeAuthenticationStatus={this.changeAuthenticationStatus}
           />
+          <Rating
+  emptySymbol={<img src="https://raw.githubusercontent.com/dreyescat/react-rating/master/assets/images/star-empty.png" className="icon" />}
+  fullSymbol={<img src="https://raw.githubusercontent.com/dreyescat/react-rating/master/assets/images/star-full.png" className="icon" />}
+/>
           <Switch>
             {/* {this.state.loaded && (
              */}
@@ -63,7 +68,11 @@ class App extends Component {
             <Route exact path="/post/create" component={PostCreateView} />
             <Route exact path="/post/list" component={PostListView} />
             <Route exact path="/post/:id" component={PostSingleView} />
+            <Route exact path="/review/create" component={ReviewCreateView} />
+            <Route exact path="/review/list" component={ReviewListView} />
+            <Route exact path="/review/:id" component={ReviewSingleView} />
             <Route path="/:id/edit" component={PostEditView} />
+            <Route path="/:id/delete" component={ReviewDeleteView} />
             <Route
               path="/sign-up"
               render={props => (
