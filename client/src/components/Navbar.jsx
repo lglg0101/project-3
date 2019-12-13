@@ -23,8 +23,10 @@ class Navbar extends Component {
     return (
       <nav>
           <Fragment>
-            <Link to="/sign-in">Sign In</Link>
-            <Link to="/sign-up">Sign Up</Link>
+            <Link to="/sign-in">Sign In</Link>{' '}|{' '}
+            <Link to="/sign-up">Sign Up</Link>{' '}|{' '}
+            <Link to="/community">Community</Link>
+
           </Fragment>
       
       </nav>

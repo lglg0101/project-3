@@ -5,6 +5,8 @@ import AuthenticationSignUpView from './views/authenticationView/SignUpView';
 import AuthenticationSignInView from './views/authenticationView/LoginView';
 import Navbar from "./components/Navbar";
 import HomePage from "./views/HomePage"
+import CommunityView from './views/CommunityView';
+import PostCreateView from './views/postView/PCreate';
 
 
 
@@ -54,6 +56,8 @@ class App extends Component {
                 redirect="/error/401"
               /> */}
 							<Route exact path="/" component={HomePage} />
+							<Route exact path="/community" component={CommunityView} />
+							<Route exact path="/post/create" component={PostCreateView}/>
               <Route
                 path="/sign-up" 
                 render={props => (
