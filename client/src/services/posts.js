@@ -29,8 +29,20 @@ export const create = async post => {
 export const load = async id => {
   try {
     const response = await apiService.get(`/${id}`);
+    console.log(response);
     const post = response.data.post;
     return post;
+  } catch (error) {
+    console.log(error);
+    throw error;
+  }
+};
+
+export const list = async () => {
+  try {
+    const response = await apiService.get('/list');
+    const posts = response.data.posts;
+    return posts;
   } catch (error) {
     throw error;
   }

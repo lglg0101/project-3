@@ -5,6 +5,16 @@ const Post = require("./../models/post");
 
 const multerMiddleware = require("./../middleware/multer-configuration");
 
+router.get("/list", async (req, res, next) => {
+  try {
+    const posts = await Post.find().exec();
+    console.log(posts);
+    res.json({ posts });
+  } catch (error) {
+    next(error);
+  }
+});
+
 router.post(
   "/create",
   multerMiddleware.single("image"),
@@ -31,4 +41,12 @@ router.post(
   }
 );
 
+router.get("/:id", async (req, res, next) => {
+  try {
+    const post = await Post.findById(req.params.id).exec();
+    res.json({ post });
+  } catch (error) {
+    next(error);
+  }
+});
 module.exports = router;

@@ -56,7 +56,7 @@ class PostCreateView extends Component {
 		event.preventDefault();
 		const post = this.state.post;
 		createPostService(post)
-			.then(newPost => this.props.history.push(`/${newPost._id}`))
+			.then(newPost => this.props.history.push(`/post/list`))
 			.catch(error => console.log(error));
 	}
 
