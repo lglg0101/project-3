@@ -1,0 +1,95 @@
+.Login {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url('./../../images/metallic.jpg');
+	background-size: cover;
+	height: 100vh;
+}
+
+.Loginform input {
+	font-family: monospace;
+	font-size: 20px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	padding: 3em 8em;
+	/* border: 2px green solid; */
+}
+
+.Loginform button {
+	margin-top: 1em;
+	padding: 1em;
+	display: flex;
+	align-self: center;
+}
+
+.SignUp {
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	background: url('./../../images/metallic.jpg');
+	background-size: cover;
+	height: 100vh;
+}
+
+.SignUpFormDiv {
+	display: flex;
+	justify-content: center;
+}
+
+.SignUpForm input {
+	display: flex;
+	font-family: monospace;
+	font-size: 17px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+	padding: 1em 4em;
+}
+
+.SignUpForm label {
+	padding: 0.5em;
+	font-weight: bold;
+	margin-top: 1em;
+	background: black;
+	color: white;
+	width: 20em;
+	font-family: monospace;
+	font-size: 17px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}
+
+input[type='checkbox'] {
+	transform: scale(2.5);
+	margin: 2em;
+}
+
+.signUpBtn {
+	font-weight: bold;
+	padding: 1em;
+	margin-top: 1em;
+	background: yellow;
+	width: 20em;
+	font-family: monospace;
+	font-size: 17px;
+	text-align: center;
+	display: flex;
+	justify-content: center;
+}
+
+.shopGreeting {
+	font-weight: bold;
+	padding: 0.5em;
+	margin-top: 1em;
+	background: black;
+	color: white;
+	width: 20em;
+	font-family: monospace;
+	font-size: 15px;
+	text-align: center;
+	display: flex;
+	flex-direction: column;
+}

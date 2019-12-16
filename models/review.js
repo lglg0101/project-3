@@ -11,12 +11,12 @@ const schema = new mongoose.Schema({
     maxlength: 300
   },
 
-  author: {
+  _author: {
     type: mongoose.Schema.Types.ObjectId,
-    required: true,
+    // required: true,
     ref: "User"
   },
-
+image: String,
   shopId: String,
   userId: String,
   rating: String

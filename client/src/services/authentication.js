@@ -34,7 +34,30 @@ export const signOut = async () => {
 
 export const loadUserInformation = async () => {
   try {
-    const response = await apiAuthenticationService.get(`/user-information`);
+    const response = await apiAuthenticationService.get(`/loaduser`);
+    return response.data.user;
+  } catch (error) {
+    throw error;
+  }
+};
+
+// export const loadUserPicture = async post => {
+//   const data = new FormData();
+//   data.append("text", user.text);
+//   data.append("image", user.image);
+//   try {
+//     const response = await apiService.patch(`/upload`, data);
+//     console.log("RESPONSE", response);
+//     return response
+//   } catch (error) {
+//     throw error;
+//   }
+// };
+
+
+export const loadShopInformation = async () => {
+  try {
+    const response = await apiAuthenticationService.get(`/shopprofile`);
     return response.data.user;
   } catch (error) {
     throw error;

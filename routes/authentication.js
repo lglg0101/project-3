@@ -18,8 +18,8 @@ const express = require("express");
 // });
 
 router.post("/sign-up", (req, res, next) => {
-  const { username, email, city, role, image, password } = req.body;
-  console.log("helloo", req.body);
+  const { username, email, city, isShop, image, password } = req.body;
+  console.log("REEEEEEQ BOOOOODY", req.body);
   //const image = req.file.url;
   // let token = "";
   // const generateId = length => {
@@ -39,7 +39,7 @@ router.post("/sign-up", (req, res, next) => {
         email,
         city,
         // coordinates,
-        role,
+        isShop,
         image,
         // confirmationCode: token,
         passwordHash: hash
@@ -119,6 +119,21 @@ router.post("/sign-in", (req, res, next) => {
 router.post("/sign-out", (req, res, next) => {
   req.session.destroy();
   res.json({});
+});
+
+router.get("/loaduser", async (req, res, next) => {
+  const userId = req.session.user;
+  if (!userId) {
+    res.json({});
+  } else {
+    try {
+      const user = await User.findById(userId);
+      if (!user) throw new User("Signed in user not found");
+      res.json({ user });
+    } catch (error) {
+      next(error);
+    }
+  }
 });
 
 module.exports = router;

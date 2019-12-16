@@ -1,0 +1,137 @@
+body {
+	// background: url('./../images/background.png');
+	// background: url('./../images/metallic.jpg');
+	// background: black;
+	background: rgb(233, 40, 11);
+	background: linear-gradient(
+		121deg,
+		rgba(233, 40, 11, 1) 0%,
+		rgba(223, 227, 32, 1) 100%
+	);
+	background-size: cover;
+	background-repeat: no-repeat;
+	margin: 0 auto;
+}
+
+.homeContainer {
+	border: 3px solid red;
+	display: flex;
+	flex-wrap: wrap;
+	margin: 1em;
+	flex-direction: column;
+	align-items: space-between;
+
+	/* justify-content: space-around; */
+
+	h1 {
+		// border: 3px solid blue;
+		text-align: center;
+		display: flex;
+		font-family: 'Libre Barcode 39 Extended Text', cursive;
+		color: black;
+		font-size: 5em;
+	}
+
+	h2 {
+		display: flex;
+		margin: 3em;
+		justify-content: center;
+		text-align: center;
+		font-family: 'Courier New', Courier, monospace;
+		// background: aqua;
+	}
+
+	.stickerContainer {
+		padding: 0em;
+		margin: 0;
+		// border: 3px solid orange;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.community {
+		// border: 3px solid yellow;
+		display: flex;
+		border-radius: 1em;
+		background: url('./../images/sticker.jpg');
+		background-size: cover;
+		background-repeat: no-repeat;
+		align-self: flex-end;
+		height: 27em;
+		width: 27em;
+	}
+
+	.stores {
+		// border: 3px solid green;
+		display: flex;
+		border-radius: 1em;
+		background: url('./../images/3.png');
+		background-size: cover;
+		background-repeat: no-repeat;
+		align-self: flex-start;
+		height: 27em;
+		width: 27em;
+	}
+
+	.homeLinkS {
+		margin-left: 1.5em;
+		margin-top: 0.4em;
+		width: 8em;
+		height: 2em;
+		display: flex;
+		font-family: 'Monofett', cursive;
+		text-decoration: none;
+		color: black;
+		font-size: 3em;
+	}
+
+	.headerContainer {
+		display: flex;
+		flex-direction: row;
+		justify-content: space-between;
+	}
+
+	.homeLinkC {
+		margin-left: 0.4em;
+		margin-top: 0.2em;
+		width: 10em;
+		height: 2em;
+		font-family: 'Monofett', cursive;
+		text-decoration: none;
+		color: black;
+		font-size: 3em;
+	}
+
+	.linksContainer {
+		display: flex;
+		flex-direction: column;
+		// border: 9px solid yellow;
+		width: 16em;
+		height: 15em;
+	}
+
+	.linksAndStores {
+		display: flex;
+		// border: 4px solid white;
+		display: flex;
+		flex-direction: row;
+		justify-content: space-around;
+	}
+
+	.buttonLink {
+		display: flex;
+		font-family: 'Monofett', cursive;
+		text-decoration: none;
+		color: blue;
+		font-size: 3em;
+	}
+}
+
+// font-family: 'Sirin Stencil', cursive;
+// font-family: 'Zilla Slab Highlight', cursive;
+// font-family: 'Bungee Shade', cursive;
+// font-family: 'Londrina Outline', cursive;
+// font-family: 'Monofett', cursive;
+// font-family: 'Libre Barcode 39 Extended', cursive;
+// font-family: 'Libre Barcode 39 Extended Text', cursive;

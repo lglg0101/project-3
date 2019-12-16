@@ -1,49 +1,82 @@
-import React, { Component } from "react";
-import PostCreateView from "./postView/PCreate";
-import PostSingleView from "./postView/PSingle";
-import PostListView from "./postView/PList";
-import { list as listPostService } from "./../services/posts";
+import React, { Component } from 'react';
+import './Community.css';
+
+import PostCreateView from './postView/PCreate';
+import PostSingleView from './postView/PSingle';
+import PostListView from './postView/PList';
+import { list as listPostService } from './../services/posts';
+
+import ReviewCreateView from './reviewsView/RCreate';
+import ReviewSingleView from './reviewsView/RSingle';
+import ReviewListView from './reviewsView/RList';
+import { list as listReviewService } from './../services/reviews';
+
+// import MapView from './MapView';
 
 export class CommunityView extends Component {
-  constructor(props) {
-    super(props);
-    this.state = {
-      posts: []
-    };
-    this.fetchData = this.fetchData.bind(this);
-  }
+	constructor(props) {
+		super(props);
+		this.state = {
+			posts: [],
+			reviews: []
+		};
+		this.fetchData = this.fetchData.bind(this);
+	}
 
-  async fetchData() {
-    try {
-      const posts = await listPostService();
-      this.setState({
-        posts
-      });
-    } catch (error) {
-      console.log(error);
-    }
-  }
+	async fetchData() {
+		try {
+			const posts = await listPostService();
+			const reviews = await listReviewService();
 
-  async componentDidMount() {
-    this.fetchData();
-  }
+			this.setState({
+				posts,
+				reviews
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
+	async componentDidMount() {
+		this.fetchData();
+	}
 
-  async componentDidUpdate(prevProps, prevState) {
-    if (this.prevState !== this.state.posts) {
-      this.fetchData();
-    }
-  }
+	// 	try {
+	// 		const posts = await listPostService();
+	// 		const reviews = await listReviewService();
 
-  render() {
-    return (
-      <div>
-        <h1>Message Board</h1>
-        <PostCreateView />
-        <PostListView posts={this.state.posts} />
-      </div>
-    );
-  }
+	// 		this.setState({
+	// 			posts,
+	// 			reviews
+	// 		});
+	// 		this.props.history.push('/community');
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// }
+
+	componentDidUpdate(prevProps, prevState) {
+		if (this.prevState !== this.state.posts) {
+			this.fetchData();
+		}
+	}
+
+	render() {
+		return (
+			<div className="communityContainer">
+				<div className="postContainer">
+					<h1>Message Board</h1>
+					<PostCreateView />
+					<PostListView posts={this.state.posts} />
+				</div>
+
+				<div className="reviewContainer">
+					<h1>Reviews</h1>
+					<ReviewListView reviews={this.state.reviews} />
+				</div>
+			</div>
+		);
+	}
 }
 
 export default CommunityView;

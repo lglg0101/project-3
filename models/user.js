@@ -3,6 +3,7 @@
 const mongoose = require('mongoose');
 
 const schema = new mongoose.Schema({
+
   username: {
     type: String,
     required: true,
@@ -23,8 +24,9 @@ const schema = new mongoose.Schema({
     trim: true
   },
 
-  role: {
-    //enum: ["User", "Shop"]
+  isShop: {
+    type: Boolean,
+    default: false
     // required: true
   },
 

@@ -10,18 +10,19 @@ const apiService = axios.create({
 });
 
 export const create = async review  => {
+
   console.log("review  on service", review );
 
   const data = new FormData();
-  data.append("content", review .content);
-  data.append("image", review .image);
+  data.append("text", review.text);
+  data.append("image", review.image);
 
-  console.log("data on service", data);
   try {
-    const response = await apiService.review (`/create`, data);
+    const response = await apiService.post (`/create`, data);
     console.log("RESPONSE", response);
-    return response.data.note;
+    return response.data.review;
   } catch (error) {
+    console.log("THIS IS THE ERROR", error)
     throw error;
   }
 };
@@ -41,7 +42,7 @@ export const load = async id => {
 export const list = async () => {
   try {
     const response = await apiService.get('/list');
-    const reviews = response.data.review s;
+    const reviews = response.data.reviews;
     return reviews;
   } catch (error) {
     throw error;

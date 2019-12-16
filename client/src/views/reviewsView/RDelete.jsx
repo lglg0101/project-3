@@ -1,38 +1,42 @@
 import React, { Component } from 'react';
+import './Reviews.css';
+
 import {
-	load as loadPostService,
-	edit as editPostService,
-	remove as removePostService
-} from './../../services/posts';
-class PostEditView extends Component {
+	load as loadReviewService,
+	remove as removeReviewService
+} from './../../services/reviews';
+
+class ReviewDeleteView extends Component {
 	constructor(props) {
 		super(props);
 		this.state = {
-			post: null
+			review: null
 		};
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleFormSubmission = this.handleFormSubmission.bind(this);
 		this.onDeleteTrigger = this.onDeleteTrigger.bind(this);
 	}
+
 	async componentDidMount() {
 		const id = this.props.match.params.id;
 		try {
-			const post = await loadPostService(id);
+			const review = await loadReviewService(id);
 			this.setState({
-				post
+				review
 			});
 		} catch (error) {
 			console.log(error);
 		}
 	}
+
 	handleInputChange(event) {
 		const name = event.target.name;
 		const value = event.target.value;
 		// console.log(name, value);
 		this.setState({
 			// [name]: value
-			post: {
-				...this.state.post,
+			review: {
+				...this.state.review,
 				[name]: value
 			}
 		});
@@ -45,44 +49,48 @@ class PostEditView extends Component {
     }));
     */
 	}
-	async handleFormSubmission(event) {
-		event.preventDefault();
-		const post = this.state.post;
-		const id = this.props.match.params.id;
-		try {
-			await editPostService(id, post);
-			this.props.history.push(`/${id}`);
-		} catch (error) {
-			console.log(error);
-		}
-	}
+
+	// async handleFormSubmission(event) {
+	// 	event.preventDefault();
+	// 	const review = this.state.review;
+	// 	const id = this.props.match.params.id;
+	// 	try {
+	// 		await editReviewService(id, review);
+	// 		this.props.history.push(`/${id}`);
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// }
+
 	async onDeleteTrigger() {
 		const id = this.props.match.params.id;
 		try {
-			await removePostService(id);
+			await removeReviewService(id);
 			this.props.history.push(`/list`);
 		} catch (error) {
 			console.log(error);
 		}
 	}
+
 	render() {
-		const post = this.state.post;
+		const review = this.state.review;
 		return (
 			<main>
-				{post && (
+				{review && (
 					<form onSubmit={this.handleFormSubmission}>
 						<textarea
 							placeholder="Text"
-							value={post.text || ''}
+							value={review.text || ''}
 							name="text"
 							onChange={this.handleInputChange}
 						></textarea>
-						<button>Edit Post</button>
+						<button>Edit Review</button>
 					</form>
 				)}
-				<button onClick={this.onDeleteTrigger}>Delete Post</button>
+				<button onClick={this.onDeleteTrigger}>Delete Review</button>
 			</main>
 		);
 	}
 }
-export default PostEditView;
+
+export default ReviewDeleteView;

@@ -1,21 +1,15 @@
-//services for Posts
 import axios from "axios";
-
 const apiService = axios.create({
-  // Before proxying
-  // baseURL: 'http://localhost:3020/api'
-  // After proxying
-  // baseURL: 'http://localhost:3000/api'
+  
   baseURL: "/post"
 });
 
+
 export const create = async post => {
   console.log("POST on service", post);
-
   const data = new FormData();
   data.append("content", post.content);
   data.append("image", post.image);
-
   console.log("data on service", data);
   try {
     const response = await apiService.post(`/create`, data);
@@ -25,7 +19,6 @@ export const create = async post => {
     throw error;
   }
 };
-
 export const load = async id => {
   try {
     const response = await apiService.get(`/${id}`);
@@ -37,7 +30,6 @@ export const load = async id => {
     throw error;
   }
 };
-
 export const list = async () => {
   try {
     const response = await apiService.get('/list');
@@ -47,7 +39,6 @@ export const list = async () => {
     throw error;
   }
 };
-
 export const edit = async (id, post) => {
   try {
     await apiService.patch(`/${id}`, post);
@@ -55,7 +46,6 @@ export const edit = async (id, post) => {
     throw error;
   }
 };
-
 export const remove = async id => {
   try {
     await apiService.delete(`/${id}`);
@@ -63,3 +53,5 @@ export const remove = async id => {
     throw error;
   }
 };
+
+

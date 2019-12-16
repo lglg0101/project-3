@@ -15,6 +15,8 @@ const indexRouter = require("./routes/index");
 const authenticationRouter = require("./routes/authentication");
 const postRouter = require("./routes/post");
 const reviewRouter = require("./routes/review");
+const profileRouter = require("./routes/userprofile"); 
+const shopRouter = require("./routes/shopprofile"); 
 
 const app = express();
 
@@ -46,7 +48,9 @@ app.use(bindUserToViewLocals);
 app.use("/", indexRouter);
 app.use("/authentication", authenticationRouter);
 app.use("/post", postRouter);
-// app.use('/review', reviewRouter);
+app.use("/review", reviewRouter);
+app.use("/userprofile", profileRouter);
+app.use("/shopprofile", shopRouter);
 
 //DEPLOYMENT//
 // app.get('*', (req, res, next) => {

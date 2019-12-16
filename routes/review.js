@@ -1,18 +1,18 @@
 const { Router } = require("express");
 const router = new Router();
 
-const Review = require("../models/review");
+const Review = require("./../models/review");
 
-const multerMiddleware = require("../middleware/multer-configuration");
+const multerMiddleware = require("./../middleware/multer-configuration");
 
 router.get("/list", async (req, res, next) => {
   try {
     const reviews = await Review.find()
       .populate("_author")
-      .sort({ createdAt: -1 })
+      .sort({ createdAt: -1 })  
       .exec();
-    console.log(reviews );
-    res.json({ reviews  });
+    // console.log("THIS IS WHERE THE BUG IS:" + reviews);
+    res.json({ reviews });
   } catch (error) {
     next(error);
   }
@@ -25,14 +25,15 @@ router.post(
     // console.log("REQ BODY", req.body);
     // console.log("REQ file", req.file);
     // console.log("USER", req.session.user);
+    console.log("BODY BEFORE CREATE", req.body);
 
     // const { title, body } = req.body;
     const data = {
-      text: req.body.content,
+      text: req.body.text,
       image: req.file.url,
       _author: req.session.user
     };
-    // console.log("DATA BEFORE CREATE", data);
+    console.log("DATA BEFORE CREATE", data);
 
     try {
       const review = await Review.create(data);
@@ -61,7 +62,7 @@ router.patch('/:id', async (req, res, next) => {
 router.get("/:id", async (req, res, next) => {
   try {
     const review = await Review.findById(req.params.id)
-    .populate("_author")
+    // .populate("_author")
     .sort({ createdAt: -1 })
     .exec();
     res.json({ review });
