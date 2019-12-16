@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Switch, Route, Link } from 'react-router-dom';
+import { BrowserRouter, Switch, Route, Link, Fragment } from 'react-router-dom';
 import './App.css';
 import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -132,7 +132,17 @@ class App extends Component {
 								/>
 							)}
 						/>
-						<Route exact path="/shopprofile" component={ShopProfile} />
+						<Route
+							exact
+							path="/shopprofile"
+							render={props => (
+								<ShopProfile
+									{...props}
+									user={this.state.user}
+									changeAuthenticationStatus={this.changeAuthenticationStatus}
+								/>
+							)}
+						/>
 						{/* <Route
 							path="/userprofile"
 							exact

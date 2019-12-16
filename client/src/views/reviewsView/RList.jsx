@@ -28,7 +28,11 @@ class ReviewListView extends Component {
 		return (
 			<main>
 				{this.state.reviews.map(review => (
-					<Link key={review._id} to={`/review/${review._id}`}>
+					<Link
+						className="linkReview"
+						key={review._id}
+						to={`/review/${review._id}`}
+					>
 						<h1>{review.text}</h1>
 						<img src={review.image} alt="" />
 						{/* <p>{review._author.username}</p> */}

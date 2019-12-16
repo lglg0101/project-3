@@ -27,6 +27,7 @@ class Navbar extends Component {
 					<Link to="/sign-up">Sign Up</Link> |{' '}
 					<Link to="/community">Community</Link>
 					<Link to="/userprofile">Profile Page </Link>
+					{user && <Link to="/sign-out">Profile Page </Link>}
 				</Fragment>
 			</nav>
 		);

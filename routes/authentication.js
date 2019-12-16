@@ -18,7 +18,17 @@ const express = require("express");
 // });
 
 router.post("/sign-up", (req, res, next) => {
-  const { username, email, city, isShop, image, password } = req.body;
+  const { username,
+				email,
+				city,
+				isShop,
+				image,
+				password,
+				shopName,
+				shopAdress,
+				telephone,
+				shopImage,
+				workingHours } = req.body;
   console.log("REEEEEEQ BOOOOODY", req.body);
   //const image = req.file.url;
   // let token = "";
@@ -35,14 +45,17 @@ router.post("/sign-up", (req, res, next) => {
     .hash(password, 10)
     .then(hash => {
       return User.create({
-        username,
-        email,
-        city,
-        // coordinates,
-        isShop,
-        image,
-        // confirmationCode: token,
-        passwordHash: hash
+       username,
+				email,
+				city,
+				isShop,
+				image,
+				passwordHash: hash,
+				shopName,
+				shopAdress,
+				telephone,
+				shopImage,
+				workingHours
       });
     })
     .then(user => {

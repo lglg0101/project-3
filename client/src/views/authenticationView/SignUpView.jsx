@@ -9,11 +9,17 @@ class AuthenticationSignUpView extends Component {
 			username: '',
 			email: '',
 			city: '',
-			// coordinates, '',
+			coordinates: '',
 			image: '',
 			password: '',
-			isShop: false
+			isShop: false,
+			shopName: '',
+			shopAdress: '',
+			telephone: '',
+			shopImage: '',
+			workingHours: ''
 		};
+
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleFormSubmission = this.handleFormSubmission.bind(this);
 		this.handleFileChange = this.handleFileChange.bind(this);
@@ -41,7 +47,19 @@ class AuthenticationSignUpView extends Component {
 
 	async handleFormSubmission(event) {
 		event.preventDefault();
-		const { username, email, city, isShop, image, password } = this.state;
+		const {
+			username,
+			email,
+			city,
+			isShop,
+			image,
+			password,
+			shopName,
+			shopAdress,
+			telephone,
+			shopImage,
+			workingHours
+		} = this.state;
 		console.log(this.state);
 		try {
 			const user = await signUpService({
@@ -50,7 +68,12 @@ class AuthenticationSignUpView extends Component {
 				city,
 				isShop,
 				image,
-				password
+				password,
+				shopName,
+				shopAdress,
+				telephone,
+				shopImage,
+				workingHours
 			});
 			this.props.changeAuthenticationStatus(user);
 			this.props.history.push(`/userprofile`);
@@ -118,24 +141,24 @@ class AuthenticationSignUpView extends Component {
 								<input
 									type="text"
 									placeholder="Shop Name"
-									value={this.state.shopname}
-									name="shopname"
+									value={this.state.shopName}
+									name="shopName"
 									onChange={this.handleInputChange}
 								/>
 
 								<input
 									type="text"
 									placeholder="Add Your Store Adress"
-									value={this.state.adress}
-									name="adress"
+									value={this.state.shopAdress}
+									name="shopAdress"
 									onChange={this.handleInputChange}
 								/>
 								<input
 									className="fileUpload"
 									type="file"
 									placeholder="Add an image of your store"
-									value={this.state.shopImg}
-									name="shopImg"
+									value={this.state.shopImage}
+									name="shopImage"
 									onChange={this.handleFileChange}
 								/>
 								<input

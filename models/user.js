@@ -42,9 +42,30 @@ const schema = new mongoose.Schema({
  
   passwordHash: {
     type: String
-  }
+  },
+
+  shopName: {
+    type: String,
+    // required: true,
+    trim: true,
+    lowercase: true
+  },
   
- 
+  shopAdress: {
+    type: String
+  },
+
+  coordinates: [{ 
+    type: Number
+  }],
+
+  telephone: String,
+
+  shopImage: {
+    type: String
+  },
+
+  workingHours: String
 },
 
  {
@@ -53,3 +74,4 @@ const schema = new mongoose.Schema({
   );
 
 module.exports = mongoose.model('User', schema);
+
