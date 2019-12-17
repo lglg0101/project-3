@@ -11,12 +11,15 @@ const mongoose = require("mongoose");
 // const serveFavicon = require('serve-favicon');
 const basicAuthenticationDeserializer = require("./middleware/basic-authentication-deserializer.js");
 const bindUserToViewLocals = require("./middleware/bind-user-to-view-locals.js");
+
+// ROUTERSSSSS
 const indexRouter = require("./routes/index");
 const authenticationRouter = require("./routes/authentication");
 const postRouter = require("./routes/post");
 const reviewRouter = require("./routes/review");
-const profileRouter = require("./routes/userprofile"); 
-const shopRouter = require("./routes/shopprofile"); 
+const profileRouter = require("./routes/userprofile");
+const shopRouter = require("./routes/shopprofile");
+const shopInfo = require("./routes/shopInfo");
 
 const app = express();
 
@@ -31,14 +34,14 @@ app.use(
     resave: true,
     saveUninitialized: false,
     cookie: {
-      maxAge: 60 * 60 * 24 * 15,
+      maxAge: 60 * 60 * 24 * 15 * 1000,
       sameSite: "lax",
       httpOnly: true,
       secure: process.env.NODE_ENV === "production"
     },
     store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
-      ttl: 60 * 60 * 24
+      ttl: 60 * 60 * 24 * 1000
     })
   })
 );
@@ -51,6 +54,7 @@ app.use("/post", postRouter);
 app.use("/review", reviewRouter);
 app.use("/userprofile", profileRouter);
 app.use("/shopprofile", shopRouter);
+app.use("/shops", shopInfo);
 
 //DEPLOYMENT//
 // app.get('*', (req, res, next) => {

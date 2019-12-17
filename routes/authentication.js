@@ -3,6 +3,7 @@
 const { Router } = require("express");
 const router = new Router();
 const User = require("./../models/user");
+const Shop =  require("./../models/shop");
 const bcryptjs = require("bcryptjs");
 const nodemailer = require("nodemailer");
 const express = require("express");
@@ -18,7 +19,13 @@ const express = require("express");
 // });
 
 router.post("/sign-up", (req, res, next) => {
-  const { username, email, city, isShop, image, password } = req.body;
+  const { username,
+    email,
+    city,
+    isShop,
+    image,
+    password
+     } = req.body;
   console.log("REEEEEEQ BOOOOODY", req.body);
   //const image = req.file.url;
   // let token = "";
@@ -35,14 +42,13 @@ router.post("/sign-up", (req, res, next) => {
     .hash(password, 10)
     .then(hash => {
       return User.create({
-        username,
-        email,
-        city,
-        // coordinates,
-        isShop,
-        image,
-        // confirmationCode: token,
-        passwordHash: hash
+       username,
+				email,
+				city,
+				isShop,
+				image,
+				passwordHash: hash
+				
       });
     })
     .then(user => {

@@ -1,9 +1,7 @@
 import axios from "axios";
 const apiService = axios.create({
-  
   baseURL: "/post"
 });
-
 
 export const create = async post => {
   console.log("POST on service", post);
@@ -14,7 +12,7 @@ export const create = async post => {
   try {
     const response = await apiService.post(`/create`, data);
     console.log("RESPONSE", response);
-    return response.data.note;
+    return response.data.post;
   } catch (error) {
     throw error;
   }
@@ -32,7 +30,7 @@ export const load = async id => {
 };
 export const list = async () => {
   try {
-    const response = await apiService.get('/list');
+    const response = await apiService.get("/list");
     const posts = response.data.posts;
     return posts;
   } catch (error) {
@@ -53,5 +51,3 @@ export const remove = async id => {
     throw error;
   }
 };
-
-

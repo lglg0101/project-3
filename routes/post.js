@@ -8,7 +8,7 @@ router.get("/list", async (req, res, next) => {
       .populate("_author")
       .sort({ createdAt: -1 })
       .exec();
-    console.log(posts);
+    //console.log(posts);
     res.json({ posts });
   } catch (error) {
     next(error);

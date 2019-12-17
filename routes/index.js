@@ -9,14 +9,6 @@ router.get('/', (req, res, next) => {
 });
 
 
-// router.get('/about', (req, res, next) => {
-//   res.render(`about`);
-// });
-
-
-// router.get('/userprofile', routeGuard, (req, res, next) => {
-//   res.render('private');
-// });
 
 module.exports = router;
 

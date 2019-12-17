@@ -4,6 +4,8 @@ import {
 	edit as editPostService,
 	remove as removePostService
 } from './../../services/posts';
+import './Posts.css';
+
 class PostEditView extends Component {
 	constructor(props) {
 		super(props);

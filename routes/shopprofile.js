@@ -51,12 +51,11 @@ router.get('/shopprofile', routeGuard, (req, res, next) => {
          shopId
       ,
       {
-        name: req.body.name,
-        email: req.body.email,
+        name: req.body.shopName,
         location: req.body.location,
-        bio: req.body.bio,
         telephone: req.body.telephone,
         workingHours: req.body.workingHours
+        
 
       }
     )

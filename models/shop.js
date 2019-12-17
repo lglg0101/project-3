@@ -1,59 +1,50 @@
-'use strict';
+"use strict";
 
-const mongoose = require('mongoose');
+const mongoose = require("mongoose");
 
-const schema = new mongoose.Schema({
+const schema = new mongoose.Schema(
+  {
+    shopName: {
+      type: String,
+      required: true
+    },
 
-  shopName: {
-    type: String,
-    required: true,
-    trim: true,
-    lowercase: true
-  },
-  
-  email: {
-    type: String,
-    required: true,
-    lowercase: true,
-    trim: true
-  },
+    _owner: {
+      type: mongoose.Schema.Types.ObjectId,
+      ref: "User"
+    },
 
-  coordinates: [{ 
-    type: Number
-  }],
+    shopAdress: {
+      type: String
+      //default: 'Point'
+    },
+    coordinates: {
+      type: [Number],
+      min: -180,
+      max: 180
+    },
+    telephone: String,
 
-  bio: String,
-  telephone: Number, 
-  _owner: {
-    type: mongoose.Schema.Types.ObjectId,
-    ref: "User"},
+    //MAP LOCATION API SCHEMA HERE
 
-//MAP LOCATION API SCHEMA HERE 
+    //confirmationCode: String,
 
+    image: {
+      type: String
+    },
 
-confirmationCode: String,
+    workingHours: String,
 
-image: {
-    type: String,
-    required: true,
-    trim: true
-  },
-
-workingHours: String,
-
-  status: {
-    type: String,
-    enum: ["Active", "Pending"],
-    default: "Pending"
+    status: {
+      type: String,
+      enum: ["Active", "Pending"],
+      default: "Pending"
+    }
   },
 
-  passwordHash: {
-    type: String
-  }
-},
- {
+  {
     timestamps: true
   }
 );
 
-module.exports = mongoose.model('Shop', schema);
+module.exports = mongoose.model("Shop", schema);
