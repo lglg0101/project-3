@@ -9,6 +9,8 @@ import { loadUserInformation } from './../services/authentication.js';
 import { list as listReviewService } from './../services/reviews.js';
 import { list as listPostService } from './../services/posts.js';
 
+import MapView from './../components/Map';
+
 import Navbar from './../components/Navbar';
 
 export default class ShopProfile extends Component {
@@ -46,6 +48,12 @@ export default class ShopProfile extends Component {
 				</div>
 
 				<div className="profileContainer">
+					{/* <MapView
+						google={this.props.google}
+						center={{ lat: 18.5204, lng: 73.8567 }}
+						height="300px"
+						zoom={15}
+					/> */}
 					{user && (
 						<div>
 							<div>

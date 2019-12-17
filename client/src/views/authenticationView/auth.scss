@@ -9,17 +9,21 @@
 
 .Loginform input {
 	font-family: monospace;
-	font-size: 20px;
+	font-size: 15px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	padding: 3em 8em;
+	padding: 2em 5em;
 	/* border: 2px green solid; */
 }
 
 .Loginform button {
+	font-family: monospace;
+	background: black;
+	color: white;
+	font-size: 15px;
 	margin-top: 1em;
-	padding: 1em;
+	padding: 0.5em;
 	display: flex;
 	align-self: center;
 }
@@ -41,11 +45,11 @@
 .SignUpForm input {
 	display: flex;
 	font-family: monospace;
-	font-size: 17px;
+	font-size: 15px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	padding: 1em 4em;
+	padding: 1em 4.2em;
 }
 
 .SignUpForm label {
@@ -54,7 +58,7 @@
 	margin-top: 1em;
 	background: black;
 	color: white;
-	width: 20em;
+	width: 18.5em;
 	font-family: monospace;
 	font-size: 17px;
 	text-align: center;
@@ -63,7 +67,7 @@
 }
 
 input[type='checkbox'] {
-	transform: scale(2.5);
+	transform: scale(1.5);
 	margin: 2em;
 }
 
@@ -72,7 +76,7 @@ input[type='checkbox'] {
 	padding: 1em;
 	margin-top: 1em;
 	background: yellow;
-	width: 20em;
+	width: 18.5em;
 	font-family: monospace;
 	font-size: 17px;
 	text-align: center;
@@ -81,15 +85,16 @@ input[type='checkbox'] {
 }
 
 .shopGreeting {
-	font-weight: bold;
 	padding: 0.5em;
+	font-weight: bold;
 	margin-top: 1em;
 	background: black;
 	color: white;
-	width: 20em;
+	width: 18.5em;
 	font-family: monospace;
-	font-size: 15px;
+	font-size: 17px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 }
+

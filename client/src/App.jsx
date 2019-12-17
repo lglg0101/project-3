@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route, Link, Fragment } from 'react-router-dom';
 import './App.css';
-import { Map, GoogleApiWrapper, Marker } from 'google-maps-react';
+import { Map, GoogleApiWrapper, InfoWindow, Marker } from 'google-maps-react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Button from 'react-bootstrap/Button';
 
@@ -24,7 +24,8 @@ import ReviewSingleView from './views/reviewsView/RSingle';
 import ReviewListView from './views/reviewsView/RList';
 import ReviewDeleteView from './views/reviewsView/RDelete';
 
-import MapView from './views/MapView';
+import MapView from './components/Map';
+
 import Rating from 'react-rating';
 import UserProfile from './views/UserProfile';
 import ShopProfile from './views/ShopProfile';

@@ -56,6 +56,7 @@ class PostCreateView extends Component {
 			// .then(newPost => this.props.history.push(`/post/list`))
 			.catch(error => console.log(error));
 	}
+	
 	handleFileChange(event) {
 		//console.dir(event.target.files);
 		const file = event.target.files[0];
@@ -66,6 +67,7 @@ class PostCreateView extends Component {
 			}
 		});
 	}
+	
 	render() {
 		const post = this.state.post;
 		return (

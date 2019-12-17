@@ -11,7 +11,6 @@ import ReviewSingleView from './reviewsView/RSingle';
 import ReviewListView from './reviewsView/RList';
 import { list as listReviewService } from './../services/reviews';
 
-// import MapView from './MapView';
 
 export class CommunityView extends Component {
 	constructor(props) {
