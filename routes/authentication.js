@@ -24,9 +24,11 @@ router.post("/sign-up", (req, res, next) => {
     city,
     isShop,
     image,
-    password
+    password,
+    bio
      } = req.body;
   console.log("REEEEEEQ BOOOOODY", req.body);
+  
   //const image = req.file.url;
   // let token = "";
   // const generateId = length => {
@@ -47,6 +49,7 @@ router.post("/sign-up", (req, res, next) => {
 				city,
 				isShop,
 				image,
+        bio,
 				passwordHash: hash
 				
       });

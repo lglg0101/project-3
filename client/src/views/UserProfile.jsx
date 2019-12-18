@@ -9,6 +9,7 @@ import { loadUserInformation } from './../services/authentication.js';
 import { list as listReviewService } from './../services/reviews.js';
 import { list as listPostService } from './../services/posts.js';
 import Navbar from './../components/Navbar';
+import { loadMyShop } from './../services/shops.js';
 
 import './Profile.scss';
 import './../components/Navbar.scss';
@@ -18,50 +19,36 @@ export default class UserProfile extends Component {
 		super(props);
 		this.state = {
 			reviews: [],
-			posts: []
+			posts: [],
+			shop: null
 		};
+		this.redirect = this.redirect.bind(this);
 	}
 
 	async componentDidMount() {
 		try {
 			const reviews = await listReviewService();
 			const posts = await listPostService();
+			const shop = await loadMyShop();
 
 			console.log(reviews);
 			console.log('USER', this.props.user._id);
 
 			this.setState({
 				reviews,
-				posts
+				posts,
+				shop
 			});
 		} catch (error) {
 			console.log(error);
 		}
 	}
-	// async componentDidMount() {
-	// 	console.log(this.props);
-	// 	try {
-	// 		// const reviews = await loadReviewInformation();
-	// 		const reviews = await listReviewService();
-
-	// 		this.setState({
-	// 			// user: this.props.user,
-	// 			reviews
-	// 		});
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// 	console.log('THIS IS THE REVIEW', this.state.reviews);
-	// }
+	redirect(url) {
+		this.props.history.push(url);
+	}
 
 	render() {
 		const user = this.props.user;
-
-		// const reviews = this.state.reviews;
-		// const filteredArray = this.state.reviews.filter(
-		// 	review => review._author._id === user._id
-		// );
-		// console.log(user.image);
 
 		return (
 			<div className="profileContainer">
@@ -75,9 +62,13 @@ export default class UserProfile extends Component {
 							<div>
 								<div className="shopLink">
 									{' '}
-									{user.isShop && <ShopInfo />}
-									{user.isShop && (
-										<Link to="/shopprofile">GO TO YOUR SHOP PROFILE</Link>
+									{user.isShop && !this.state.shop && (
+										<ShopInfo redirect={this.redirect} />
+									)}
+									{user.isShop && this.state.shop && (
+										<Link className="shopLink" to="/shopprofile">
+											{this.state.shop.shopName}'S Profile Page
+										</Link>
 									)}
 								</div>
 							</div>
@@ -89,7 +80,7 @@ export default class UserProfile extends Component {
 									alt=""
 								/>
 								<img src={user.image} />
-								<h1>{user.username}</h1>
+								<h1>{user.bio}</h1>
 							</div>
 						</div>
 
