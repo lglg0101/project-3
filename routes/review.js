@@ -31,7 +31,8 @@ router.post(
     const data = {
       text: req.body.text,
       image: req.file.url,
-      _author: req.session.user
+      _author: req.session.user,
+      _shop: req.body.shopId
     };
     console.log("DATA BEFORE CREATE", data);
 
@@ -44,6 +45,21 @@ router.post(
     }
   }
 );
+
+
+router.get("/reviews-of-shop/:shopId", async (req, res, next) => {
+const shopId = req.params.shopId;
+console.log("SHOP-USER ON REVIEW ROUTE", shopId)
+  try {
+    const reviews = await Review.find({_shop: shopId})
+    .sort({ createdAt: -1 })
+    console.log("RESULT OF REVIEWS", reviews);
+    res.json({ reviews });
+  } catch (error) {
+    console.log(error)
+    next(error);
+  }
+});
 
 router.patch('/:id', async (req, res, next) => {
   const { text } = req.body;
@@ -79,5 +95,8 @@ router.delete('/:id', async (req, res, next) => {
     next(error);
   }
 });
+
+
+
 
 module.exports = router;

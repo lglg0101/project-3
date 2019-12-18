@@ -12,8 +12,9 @@ class AuthenticationSignUpView extends Component {
 			coordinates: '',
 			image: '',
 			password: '',
-			isShop: false,
-			};
+			bio: '',
+			isShop: false
+		};
 
 		this.handleInputChange = this.handleInputChange.bind(this);
 		this.handleFormSubmission = this.handleFormSubmission.bind(this);
@@ -42,14 +43,7 @@ class AuthenticationSignUpView extends Component {
 
 	async handleFormSubmission(event) {
 		event.preventDefault();
-		const {
-			username,
-			email,
-			city,
-			isShop,
-			image,
-			password,
-			} = this.state;
+		const { username, email, city, isShop, image, password, bio } = this.state;
 		console.log(this.state);
 		try {
 			const user = await signUpService({
@@ -58,16 +52,15 @@ class AuthenticationSignUpView extends Component {
 				city,
 				isShop,
 				image,
-				password
-			
+				password,
+				bio
 			});
 			this.props.changeAuthenticationStatus(user);
-			this.props.history.push(`/userprofile`)
+			this.props.history.push(`/userprofile`);
 		} catch (error) {
 			console.log(error);
 		}
 	}
-
 
 	render() {
 		return (
@@ -110,6 +103,16 @@ class AuthenticationSignUpView extends Component {
 							name="image"
 							onChange={this.handleFileChange}
 						/>
+
+						<label>Add a short bio!</label>
+						<input
+							type="text"
+							placeholder="Add Information"
+							value={this.state.bio}
+							name="bio"
+							onChange={this.handleInputChange}
+						/>
+
 						<label>Check Box To Register As A Shop Owner</label>
 						<input
 							className="checkbox"

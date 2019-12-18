@@ -9,6 +9,7 @@ const expressSession = require("express-session");
 const logger = require("morgan");
 const mongoose = require("mongoose");
 // const serveFavicon = require('serve-favicon');
+
 const basicAuthenticationDeserializer = require("./middleware/basic-authentication-deserializer.js");
 const bindUserToViewLocals = require("./middleware/bind-user-to-view-locals.js");
 
@@ -23,7 +24,7 @@ const shopInfo = require("./routes/shopInfo");
 
 const app = express();
 
-// app.use(serveFavicon(join(__dirname, 'public/images', 'favicon.ico')));
+// app.use(serveFavicon(join(__dirname, 'client/build/favicon')));
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -37,7 +38,7 @@ app.use(
       maxAge: 60 * 60 * 24 * 15 * 1000,
       sameSite: "lax",
       httpOnly: true,
-      secure: process.env.NODE_ENV === "production"
+      //secure: process.env.NODE_ENV === "production"
     },
     store: new (connectMongo(expressSession))({
       mongooseConnection: mongoose.connection,
@@ -55,6 +56,9 @@ app.use("/review", reviewRouter);
 app.use("/userprofile", profileRouter);
 app.use("/shopprofile", shopRouter);
 app.use("/shops", shopInfo);
+
+// app.use('/api', indexRouter);
+// app.use('/api/authentication');
 
 //DEPLOYMENT//
 // app.get('*', (req, res, next) => {

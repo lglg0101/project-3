@@ -10,6 +10,7 @@ class ReviewCreateView extends Component {
 		this.state = {
 			review: {
 				text: '',
+				_author: '',
 				// rating: '',
 				image: ''
 			}
@@ -56,13 +57,18 @@ class ReviewCreateView extends Component {
 
 	async handleFormSubmission(event) {
 		event.preventDefault();
-		const review = this.state.review;
-		try {
-			const reviewDocument = await createReviewService(review);
-			// this.props.history.push(`/${id}`);
-		} catch (error) {
-			console.log(error);
-		}
+		console.log('SHOP ID FOR CREATION', this.props.shop._id);
+		const shopId = this.props.shop._id;
+		const reviewDocument = this.state.review;
+
+		await createReviewService(reviewDocument, shopId);
+		this.props.onReviewCreated();
+
+		// const reviewDocument = await createReviewService(review);
+		// this.props.history.push(`/${id}`);
+		// } catch (error) {
+		// 	console.log(error);
+		// }
 	}
 
 	handleFileChange(event) {

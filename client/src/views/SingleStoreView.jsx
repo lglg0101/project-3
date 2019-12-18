@@ -1,9 +1,12 @@
 import React, { Component, Link } from 'react';
 import MapSingle from './../components/MapSingle';
-import { loadMyShop } from './../services/shops.js';
+import { loadShopInfo } from './../services/shops.js';
 import Navbar from './../components/Navbar';
-import PostCreateView from './../views/postView/PCreate';
+import ReviewCreateView from './../views/reviewsView/RCreate';
 import ReviewListView from './../views/reviewsView/RList';
+import { reviewsOfShop } from './../services/reviews';
+import PostListView from './../views/postView/PList';
+import { postsFromShop } from './../services/posts.js';
 
 export default class SingleStoreView extends Component {
 	constructor(props) {
@@ -13,14 +16,29 @@ export default class SingleStoreView extends Component {
 			posts: [],
 			shop: null
 		};
+		this.fetchData = this.fetchData.bind(this);
 	}
-	async componentDidMount() {
+	async fetchData() {
+		const shopId = this.props.match.params.id;
+		console.log('SHOP ID FROM PARAMS', shopId);
 		try {
-			const shop = await loadMyShop();
-			// const reviews = await listReviewService();
-			// const posts = await listPostService();
-			// console.log("SHOPS AFTER SERVICE", shop);
-			// console.log("USER", this.props.user._id);
+			const reviews = await reviewsOfShop(shopId);
+			const posts = await postsFromShop(shopId);
+
+			this.setState({
+				reviews,
+				posts
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	}
+
+	async componentDidMount() {
+		this.fetchData();
+		try {
+			const shop = await loadShopInfo(this.props.match.params.id);
+
 			this.setState({
 				shop: shop
 			});
@@ -29,43 +47,34 @@ export default class SingleStoreView extends Component {
 		}
 	}
 	render() {
-		console.log(this.props);
 		const user = this.props.user;
 		const shop = this.state.shop;
-		console.log(shop);
+		console.log('REVIEWS OF THIS SHOP', this.state.reviews);
+		console.log('POSTS OF THIS SHOP', this.state.posts);
+		console.log('STATE', this.state);
 
 		return (
 			<div>
 				<div className="navBar">
 					<Navbar user={this.props.user} />
 				</div>
-				<h1>THE IS SOMETHING HERE</h1>
+				<h1>THERE IS SOMETHING HERE</h1>
 
 				{/* {!this.state.shop && (
           <pre>{JSON.stringify(this.state.shop, 2, null)}</pre>
         )} */}
 				<div className="profileContainer">
 					<MapSingle />
+
 					{shop && (
 						<div>
 							<div>
 								<h1 className="title">{shop.shopName}</h1>
-								<div>
-									<div className="shopLink">
-										{' '}
-										{user && user.isShop && (
-											<Link to="/userprofile">GO TO YOUR USER PROFILE</Link>
-										)}
-									</div>
-								</div>
+								<div></div>
 
-								<div className="userInfo">
-									<img
-										className="profilePic"
-										src="https://www.pinpng.com/pngs/m/457-4570044_3d-diamond-pixel-art-colorful-diamond-hd-png.png"
-										alt=""
-									/>
-									<img src={shop.image} />
+								<div className="shopInfo">
+									<img className="shopPic" src={shop.image} alt="" />
+
 									<div className="shopInfo">
 										<h1>SHOP INFORMATION</h1>
 										<p className="shopInfotext">
@@ -79,14 +88,22 @@ export default class SingleStoreView extends Component {
 								</div>
 							</div>
 
-							<div>{user.isShop && <PostCreateView/>}</div>
-
+							<div>
+								{user && (
+									<ReviewCreateView
+										shop={this.state.shop}
+										onReviewCreated={this.fetchData}
+									/>
+								)}
+							</div>
 							<div className="contentDisplay">
 								<div>
 									{' '}
-									<ReviewListView />
+									<ReviewListView reviews={this.state.reviews} />
 								</div>
-
+								<div>
+									<PostListView posts={this.state.posts} />
+								</div>
 								<div>
 									{' '}
 									<h1>THIS IS WHERE POSTS GO</h1>

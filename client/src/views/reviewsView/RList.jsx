@@ -11,23 +11,23 @@ class ReviewListView extends Component {
 			reviews: []
 		};
 	}
-	async componentDidMount() {
-		try {
-			const reviews = await listReviewService();
-			this.setState({
-				reviews
-			});
-		} catch (error) {
-			console.log(error);
-		}
-		console.log(this.state.reviews);
-	}
+	// async componentDidMount() {
+	// 	try {
+	// 		const reviews = await listReviewService();
+	// 		this.setState({
+	// 			reviews
+	// 		});
+	// 	} catch (error) {
+	// 		console.log(error);
+	// 	}
+	// 	console.log(this.state.reviews);
+	// }
 
 	render() {
 		console.log('REVIEWS ON PROPS REVIEW LIST', this.props.reviews);
 		return (
 			<main>
-				{this.state.reviews.map(review => (
+				{this.props.reviews.map(review => (
 					<Link
 						className="linkReview"
 						key={review._id}

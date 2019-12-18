@@ -18,6 +18,9 @@ const schema = new mongoose.Schema(
       type: String
       //default: 'Point'
     },
+    
+    bio: String, 
+
     coordinates: {
       type: [Number],
       min: -180,

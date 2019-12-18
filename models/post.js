@@ -17,6 +17,11 @@ const schema = new mongoose.Schema(
       ref: "User"
     },
 
+    _shop: {
+    type: mongoose.Schema.Types.ObjectId,
+    // required: true,
+    ref: "Shop"
+    },
     image: String
   },
 

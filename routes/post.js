@@ -1,6 +1,8 @@
 const { Router } = require("express");
 const router = new Router();
 const Post = require("./../models/post");
+const Shop = require("./../models/shop");
+
 
 const multerMiddleware = require("./../middleware/multer-configuration");
 router.get("/list", async (req, res, next) => {
@@ -23,13 +25,22 @@ router.post(
     // console.log("REQ file", req.file);
     // console.log("USER", req.session.user);
     // const { title, body } = req.body;
-    const data = {
+    // const data = {
+    //   text: req.body.content,
+    //   image: req.file.url,
+    //   _author: req.session.user,
+    //   // _shop: req.body.shopId
+    // };
+    try {
+      const shop = await Shop.findOne({_owner: req.session.user})
+      const data = {
       text: req.body.content,
       image: req.file.url,
-      _author: req.session.user
+      _author: req.session.user,
+      _shop: shop._id
     };
-    // console.log("DATA BEFORE CREATE", data);
-    try {
+    console.log("DATA BEFORE CREATE", data);
+
       const post = await Post.create(data);
       res.json({ post });
     } catch (error) {
@@ -38,24 +49,30 @@ router.post(
     }
   }
 );
-router.patch('/:id', async (req, res, next) => {
-  const { text } = req.body;
+
+router.get("/posts-from-shop/:shopId", async (req, res, next) => {
+const shopId = req.params.shopId
+console.log("SHOP-USER ON POST ROUTE", shopId)
   try {
-    const post = await Post.findByIdAndUpdate(req.params.id, {
-     
-      ...(text ? { text } : {})
-    }).exec();
-    res.json({ post });
+    const posts = await Post.find({_shop: shopId})
+    .sort({ createdAt: -1 })
+    console.log("RESULT OF POSTS", posts);
+    res.json({ posts });
   } catch (error) {
+    console.log(error)
     next(error);
   }
 });
+
+
+
 
 router.get("/post-for-shop", async (req, res, next) => {
 const userId = req.session.user
 console.log("USER ON POST ROUTE", userId)
   try {
-    const posts = await Post.find({_author: userId})
+    const shop = await Shop.findOne({_owner: userId})
+    const posts = await Post.find({_shop: shop._id})
     .sort({ createdAt: -1 })
     console.log("RESULT OF POSTS", posts);
     res.json({ posts });
@@ -69,6 +86,18 @@ console.log("USER ON POST ROUTE", userId)
     // const shop = await Shop.findOne(_owner: req.session.user)
     // const reviews = await Review.find(_shop: shop._id)
 
+router.patch('/:id', async (req, res, next) => {
+  const { text } = req.body;
+  try {
+    const post = await Post.findByIdAndUpdate(req.params.id, {
+     
+      ...(text ? { text } : {})
+    }).exec();
+    res.json({ post });
+  } catch (error) {
+    next(error);
+  }
+});
 
 
 router.get("/:id", async (req, res, next) => {
