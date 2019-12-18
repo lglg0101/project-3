@@ -1,0 +1,60 @@
+.shopProfileContainer {
+	font-family: monospace;
+	display: flex;
+	flex-direction: column;
+}
+
+.shopHeader {
+	display: flex;
+	padding: 1em;
+	flex-direction: column;
+	justify-content: center;
+	text-align: center;
+}
+
+.shopHeader h1 {
+	font-size: 5em;
+}
+
+.shopName {
+	border: 2px solid red;
+	display: flex;
+	justify-content: center;
+}
+
+.shopName h1 {
+	font-size: 10em;
+}
+
+.shopInfo1 {
+	display: flex;
+	flex-direction: column;
+	align-items: center;
+	justify-content: space-evenly;
+}
+
+.information {
+	display: flex;
+	flex-direction: row;
+	justify-content: space-evenly;
+}
+
+.profilePic {
+	width: 10em;
+	height: 10em;
+}
+
+.link {
+	color: red;
+	padding: 1em;
+	border: 1px solid aqua;
+}
+
+.infoHeader h1 {
+	color: green;
+}
+
+.shopInfotext {
+	font-size: 2em;
+	background: white;
+}

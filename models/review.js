@@ -16,8 +16,13 @@ const schema = new mongoose.Schema({
     // required: true,
     ref: "User"
   },
+
+    _shop: {
+    type: mongoose.Schema.Types.ObjectId,
+    // required: true,
+    ref: "Shop"
+  },
 image: String,
-  shopId: String,
   userId: String,
   rating: String
 }, 

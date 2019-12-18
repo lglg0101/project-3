@@ -51,3 +51,13 @@ export const remove = async id => {
     throw error;
   }
 };
+
+export const postsForShop = async () => {
+  try {
+    const response = await apiService.get("/post-for-shop");
+    const posts = response.data.posts;
+    return posts;
+  } catch (error) {
+    throw error;
+  }
+};

@@ -1,6 +1,7 @@
 const { Router } = require("express");
 const router = new Router();
 const Post = require("./../models/post");
+
 const multerMiddleware = require("./../middleware/multer-configuration");
 router.get("/list", async (req, res, next) => {
   try {
@@ -49,6 +50,27 @@ router.patch('/:id', async (req, res, next) => {
     next(error);
   }
 });
+
+router.get("/post-for-shop", async (req, res, next) => {
+const userId = req.session.user
+console.log("USER ON POST ROUTE", userId)
+  try {
+    const posts = await Post.find({_author: userId})
+    .sort({ createdAt: -1 })
+    console.log("RESULT OF POSTS", posts);
+    res.json({ posts });
+  } catch (error) {
+    console.log(error)
+    next(error);
+  }
+});
+
+    //REVIEWS OF MY SHOP
+    // const shop = await Shop.findOne(_owner: req.session.user)
+    // const reviews = await Review.find(_shop: shop._id)
+
+
+
 router.get("/:id", async (req, res, next) => {
   try {
     const post = await Post.findById(req.params.id)
@@ -68,4 +90,7 @@ router.delete('/:id', async (req, res, next) => {
     next(error);
   }
 });
+
+
+
 module.exports = router;
