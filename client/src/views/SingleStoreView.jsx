@@ -79,7 +79,7 @@ export default class SingleStoreView extends Component {
 								</div>
 							</div>
 
-							<div>{user.isShop && <PostCreateView />}</div>
+							<div>{user.isShop && <PostCreateView/>}</div>
 
 							<div className="contentDisplay">
 								<div>
