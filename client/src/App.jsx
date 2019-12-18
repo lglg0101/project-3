@@ -25,6 +25,7 @@ import ReviewSingleView from "./views/reviewsView/RSingle";
 import ReviewListView from "./views/reviewsView/RList";
 import ReviewDeleteView from "./views/reviewsView/RDelete";
 
+import MapSingle from "./components/MapSingle";
 import MapView from "./components/Map";
 import Stores from "./views/Stores";
 import ShopInfo from "./views/authenticationView/ShopInfo";
@@ -158,6 +159,7 @@ class App extends Component {
                 )}
               />
               <Route path="/map" component={MapView} />
+              <Route path="/mapsingle" component={MapSingle} />
               {/* WHAT YOU SHOULD DO TO SEND THE USER STATE(THAT LIVE ON THE APP JS TO
 						THE OTHER COMPONENTS) */}
               <Route

@@ -10,7 +10,7 @@ import { list as listReviewService } from "./../services/reviews.js";
 import { list as listPostService } from "./../services/posts.js";
 import { loadAllShops, loadShopInfo, loadMyShop } from "./../services/shops.js";
 
-import MapView from "./../components/Map";
+import MapSingle from "./../components/MapSingle";
 
 import Navbar from "./../components/Navbar";
 import "./../components/Navbar.scss";
@@ -56,11 +56,7 @@ export default class ShopProfile extends Component {
           <pre>{JSON.stringify(this.state.shop, 2, null)}</pre>
         )} */}
         <div className="profileContainer">
-          <MapView
-            google={this.props.google}
-            center={{ lat: 18.5204, lng: 73.8567 }}
-            height="300px"
-            zoom={15}
+          <MapSingle
           />
           {shop && (
             <div>
