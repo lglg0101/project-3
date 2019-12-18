@@ -2,5 +2,27 @@
   border: 3px solid purple;
   display: flex;
   justify-content: flex-end;
+  padding: 3em
 
 }
+
+.HomeLink{
+  
+		display: flex;
+		font-family: 'Libre Barcode 39 Extended Text', cursive;
+		color: black;
+		font-size: 5em;
+}
+
+.NavContainer{
+  display: flex;
+  justify-content: space-between;
+  }
+
+  .NavIcons img {
+    width: 2.5em; 
+    height: 2.5em;
+
+  }
+
+  
