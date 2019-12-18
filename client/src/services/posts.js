@@ -3,11 +3,13 @@ const apiService = axios.create({
   baseURL: "/post"
 });
 
-export const create = async post => {
+export const create = async (post, shopId) => {
   console.log("POST on service", post);
   const data = new FormData();
   data.append("content", post.content);
   data.append("image", post.image);
+    data.append("shopId", shopId);
+
   console.log("data on service", data);
   try {
     const response = await apiService.post(`/create`, data);
@@ -51,10 +53,22 @@ export const remove = async id => {
     throw error;
   }
 };
-
+// SHOP OWNER PERSPECTIVE
 export const postsForShop = async () => {
   try {
-    const response = await apiService.get("/post-for-shop");
+    const response = await apiService.get(`/post-for-shop`);
+    const posts = response.data.posts;
+    return posts;
+  } catch (error) {
+    throw error;
+  }
+};
+
+
+// USER PERSPECTIVE
+export const postsFromShop = async id => {
+  try {
+    const response = await apiService.get(`/posts-from-shop/${id}`);
     const posts = response.data.posts;
     return posts;
   } catch (error) {

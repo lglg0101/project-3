@@ -9,13 +9,14 @@ const apiService = axios.create({
   baseURL: "/review"
 });
 
-export const create = async review  => {
+export const create = async (review, shopId ) => {
 
   console.log("review  on service", review );
 
   const data = new FormData();
   data.append("text", review.text);
   data.append("image", review.image);
+  data.append("shopId", shopId)
 
   try {
     const response = await apiService.post (`/create`, data);
@@ -60,6 +61,16 @@ export const edit = async (id, review) => {
 export const remove = async id => {
   try {
     await apiService.delete(`/${id}`);
+  } catch (error) {
+    throw error;
+  }
+};
+
+export const reviewsOfShop = async (shopId) => {
+  try {
+    const response = await apiService.get(`/reviews-of-shop/${shopId}`);
+    const reviews = response.data.reviews;
+    return reviews;
   } catch (error) {
     throw error;
   }

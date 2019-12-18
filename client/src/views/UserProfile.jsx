@@ -2,16 +2,16 @@ import React, { Component } from 'react';
 
 import PostListView from './postView/PList';
 import ReviewListView from './reviewsView/RList';
-import ShopInfo from "./authenticationView/ShopInfo"
+import ShopInfo from './authenticationView/ShopInfo';
 import { Link } from 'react-router-dom';
 
 import { loadUserInformation } from './../services/authentication.js';
 import { list as listReviewService } from './../services/reviews.js';
 import { list as listPostService } from './../services/posts.js';
-import Navbar from "./../components/Navbar";
+import Navbar from './../components/Navbar';
 
 import './Profile.scss';
-import './../components/Navbar.scss'
+import './../components/Navbar.scss';
 
 export default class UserProfile extends Component {
 	constructor(props) {
@@ -67,22 +67,17 @@ export default class UserProfile extends Component {
 			<div className="profileContainer">
 				{user && (
 					<div>
-				<div class="navBar">
-        <Navbar user={this.props.user} />
-         </div>
+						<div class="navBar">
+							<Navbar user={this.props.user} />
+						</div>
 						<div>
 							<h1 className="title">{user.username}'S Profile</h1>
 							<div>
 								<div className="shopLink">
 									{' '}
+									{user.isShop && <ShopInfo />}
 									{user.isShop && (
-										<ShopInfo />
-									
-									)}
-									{user.isShop && (
-									
 										<Link to="/shopprofile">GO TO YOUR SHOP PROFILE</Link>
-
 									)}
 								</div>
 							</div>
@@ -94,20 +89,20 @@ export default class UserProfile extends Component {
 									alt=""
 								/>
 								<img src={user.image} />
-								<h1>THIS IS WHERE THE BIO GOES</h1>
+								<h1>{user.username}</h1>
 							</div>
 						</div>
 
 						<div className="contentDisplay">
 							<div>
 								{' '}
-								<ReviewListView reviews={this.state.reviews} />
+								{/* <ReviewListView reviews={this.state.reviews} /> */}
 							</div>
 
 							<div>
 								{' '}
 								<h1>THIS IS WHERE POSTS GO</h1>
-								<PostListView posts={this.state.posts} />
+								{/* <PostListView posts={this.state.posts} /> */}
 							</div>
 						</div>
 					</div>

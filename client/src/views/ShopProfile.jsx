@@ -37,11 +37,11 @@ export default class ShopProfile extends Component {
 			console.log(error);
 		}
 	}
+
 	async componentDidMount() {
 		this.fetchData();
 		try {
 			const shop = await loadMyShop();
-
 			this.setState({
 				shop: shop
 			});
@@ -122,8 +122,11 @@ export default class ShopProfile extends Component {
 				<div className="contentDisplay">
 					{/* {user.isShop && ( */}
 					<div className="postContainer">
-						<PostCreateView onPostCreated={this.fetchData} />
-						<PostListView posts={this.state.posts} />
+						<PostCreateView
+							shop={this.state.shop}
+							onPostCreated={this.fetchData}
+						/>
+						<PostListView shop={this.state.shop} posts={this.state.posts} />
 					</div>
 					{/* )} */}
 
