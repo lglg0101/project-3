@@ -19,8 +19,7 @@ const schema = new mongoose.Schema({
   },
 
   image: {
-    type: String,
-    
+    type: String
   },
 
   city :{
@@ -36,7 +35,6 @@ const schema = new mongoose.Schema({
   },
 
   confirmationCode: String,
-  image: String,
   bio: String,
 
   status: {
@@ -65,11 +63,6 @@ const schema = new mongoose.Schema({
   }],
 
   telephone: String,
-
-  shopImage: {
-    type: String
-  },
-
   workingHours: String
 },
 

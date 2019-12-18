@@ -9,12 +9,13 @@ export default function HomePage() {
 		<div className="d-flex homeContainer">
 			<div className="d-flex headerContainer">
 				<h1>THRIFT POINT</h1>
-				<div className="d-flexlinksContainer">
-					<Link className="buttonLink" to="/sign-in">
-						Sign In
+
+				<div className="d-flex linksContainer">
+					<Link className="d-flex myButton" to="/sign-in">
+						SIGN IN
 					</Link>
-					<Link className="d-flex buttonLink" to="/sign-up">
-						Sign Up
+					<Link className="d-flex mybutton2" to="/sign-up">
+						SIGN UP
 					</Link>
 				</div>
 			</div>
@@ -22,18 +23,19 @@ export default function HomePage() {
 			<div className="d-flex flex-row stickerContainer">
 				<div className="d-flex community">
 					<Link className="d-flex homeLinkC" to="/community">
-						C o m m u n i t y
+						COMMUNITY
 					</Link>
 				</div>
 				<div className="stores">
 					<Link className="homeLinkS" to="/stores">
-						S t o r e s
+						STORES
 					</Link>
 				</div>
 			</div>
 			<div>
-				<Footer />
+				
 			</div>
+				<Footer />
 		</div>
 	);
 }
