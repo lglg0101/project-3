@@ -78,6 +78,7 @@ export default class MapSingle extends Component {
     );
   }
   componentDidMount() {
+    // this.props.match.params.
     loadShopInfo().then(shop => {
       console.log("SHOPSingle", shop);
 

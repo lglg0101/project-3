@@ -19,7 +19,7 @@ import PostCreateView from "./views/postView/PCreate";
 import PostSingleView from "./views/postView/PSingle";
 import PostListView from "./views/postView/PList";
 import PostEditView from "./views/postView/PEdit";
-
+import SingleStoreView from "./views/SingleStoreView";
 import ReviewCreateView from "./views/reviewsView/RCreate";
 import ReviewSingleView from "./views/reviewsView/RSingle";
 import ReviewListView from "./views/reviewsView/RList";
@@ -132,6 +132,7 @@ class App extends Component {
               {/* <Route exact path="/shopprofile " component={ShopProfile} /> */}
               <Route exact path="/community" component={CommunityView} />
               <Route exact path="/stores" component={Stores} />
+              <Route exact path="/stores/:id" component={SingleStoreView} />
               <Route exact path="/post/create" component={PostCreateView} />
               <Route exact path="/post/list" component={PostListView} />
               <Route exact path="/review/create" component={ReviewCreateView} />

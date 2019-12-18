@@ -1,12 +1,19 @@
 .communityContainer {
 display: flex; 
-flex-direction: row;
+flex-direction: column;
 justify-content: space-between;
 background: yellow;
 }
 
 .postContainer {
 background: blue; 
+
+}
+
+.contentContainer{
+display: flex; 
+flex-direction: row;
+justify-content: space-between;
 
 }
 

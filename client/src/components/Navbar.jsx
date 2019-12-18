@@ -1,5 +1,10 @@
 import React, { Component, Fragment } from "react";
 import { Link } from "react-router-dom";
+import home from "../images/home.png";
+import profile from "../images/profilee.png";
+import location from "../images/location.png";
+import community from "../images/community.png";
+import signout from "../images/sign-out.png";
 
 import { signOut as signOutService } from "./../services/authentication";
 
@@ -21,15 +26,21 @@ class Navbar extends Component {
   render() {
     const user = this.props.user;
     return (
-      <nav>
+      <nav className="NavContainer">
         <Fragment>
-          <Link to="/sign-in">Sign In</Link> |{" "}
-          <Link to="/sign-up">Sign Up</Link> |{" "}
-          <Link to="/stores">Stores </Link> |{" "}
-				  <Link to="/community">Community</Link> |{" "}
-          {user &&  <Link to="/userprofile">Profile Page </Link>} |{" "}
-          {user && <Link to="/sign-out">  Sign-Out</Link>}
-					{/* {user && <Link to="/sign-out"> <div onClick={this.props.history.push('/')}>  Sign-Out</div> </Link>} */}
+          <div className="NavTitle">
+            <Link to="/">
+              {" "}
+              <h1 className="HomeLink">THRIFT POINT</h1>{" "}
+            </Link>{" "}
+          </div>
+          <div className="NavIcons">
+            <Link to="/stores">  <img src={location} alt="stores" /></Link>{" "}
+            <Link to="/"> <img src={home} alt="home" /></Link>{" "}
+            <Link to="/community">  <img src={community} alt="community" /></Link>{" "}
+            {user && <Link to="/userprofile">  <img src={profile} alt="profile" /></Link>}{" "}
+            {user && <Link to="/sign-out"> <img src={signout} alt="signout" /></Link>}
+          </div>
         </Fragment>
       </nav>
     );

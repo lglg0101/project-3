@@ -65,10 +65,11 @@ export class CommunityView extends Component {
   render() {
     return (
       <div className="communityContainer">
-        <div className="postContainer">
           <div class="navBar">
             <Navbar user={this.props.user} />
-          </div>
+          </div> 
+          <div className='contentContainer'>
+        <div className="postContainer">
           <h1>Message Board</h1>
           <PostCreateView onPostCreated={this.fetchData} />
           <PostListView posts={this.state.posts} />
@@ -77,6 +78,7 @@ export class CommunityView extends Component {
         <div className="reviewContainer">
           <h1>Reviews</h1>
           <ReviewListView reviews={this.state.reviews} />
+        </div>
         </div>
       </div>
     );
