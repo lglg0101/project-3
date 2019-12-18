@@ -16,7 +16,8 @@ router.post("/shop-info", (req, res, next) => {
     shopAdress,
     telephone,
     image,
-    workingHours
+    workingHours,
+    bio
   } = req.body;
   console.log("shop info", req.body);
   return Shop.create({
@@ -26,6 +27,7 @@ router.post("/shop-info", (req, res, next) => {
     telephone,
     image,
     workingHours,
+    bio,
     _owner: req.session.user
   })
     .then(shop => {

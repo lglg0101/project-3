@@ -114,6 +114,10 @@ export default class ShopProfile extends Component {
 								Address:
 								{shop && <p>{shop.shopAdress} </p>}
 							</p>
+							<p className="shopInfotext">
+								BIO:
+								{shop && <p>{shop.bio} </p>}
+							</p>
 						</div>
 					</div>
 				</div>
