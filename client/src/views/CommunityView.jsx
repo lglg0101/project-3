@@ -28,7 +28,6 @@ export class CommunityView extends Component {
 		try {
 			const posts = await listPostService();
 			const reviews = await listReviewService();
-
 			this.setState({
 				posts,
 				reviews
@@ -63,6 +62,7 @@ export class CommunityView extends Component {
 	// }
 
 	render() {
+		console.log('REVIEWS ON RENDER COMM VIEW', this.state.reviews);
 		return (
 			<div className="communityContainer">
 				<div class="navBar">
@@ -92,6 +92,7 @@ export class CommunityView extends Component {
 							<h1>Reviews</h1>
 							<p>These Are Some Of Our Other User's Reviews!</p>
 						</div>
+
 						<ReviewListView reviews={this.state.reviews} />
 					</div>
 				</div>
