@@ -27,9 +27,9 @@ class PostSingleView extends Component {
 		const post = this.state.post;
 		const id = this.props.match.params.id;
 		return (
-			<main>
+			<main className="mainSingleView">
 				{post && (
-					<div>
+					<div className="ReviewSingleView">
 						<img src={post.image} />
 						<p>{post.text}</p>
 						<Link to={`/${id}/edit`}>Edit Post</Link>

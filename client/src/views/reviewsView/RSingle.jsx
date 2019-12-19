@@ -30,12 +30,12 @@ class ReviewSingleView extends Component {
 		const review = this.state.review;
 		const id = this.props.match.params.id;
 		return (
-			<main>
+			<main className="mainSingleView">
 				{review && (
-					<div>
+					<div className="ReviewSingleView">
 						<p>{review.text}</p>
-						<img src={review.text} alt=""/>
-					<Link to={`/stores/${review._shop}`}>Link to the Store</Link>
+						<img src={review.image} alt=""/>
+					<Link to={`/stores/${review._shop}`}>Link to the Store</Link> 
 						<Link to={`/${id}/edit`}>Edit Review</Link>
 					</div>
 				)}
