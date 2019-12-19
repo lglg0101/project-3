@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-const serveFavicon = require('serve-favicon');
+// const serveFavicon = require('serve-favicon');
 
 const basicAuthenticationDeserializer = require("./middleware/basic-authentication-deserializer.js");
 const bindUserToViewLocals = require("./middleware/bind-user-to-view-locals.js");
@@ -27,9 +27,9 @@ const app = express();
 // //DEPLOYMENT//
 
 
-app.use(express.state(join(__dirname, "client/build")));
+app.use(express.static(join(__dirname, "client/build")));
 
-app.use(serveFavicon(join(__dirname, 'client/build/favicon')));
+// app.use(serveFavicon(join(__dirname, 'client/build/favicon')));
 
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
