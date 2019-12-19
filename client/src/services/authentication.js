@@ -1,9 +1,7 @@
 import axios from "axios";
-
 const apiAuthenticationService = axios.create({
   baseURL: "/authentication"
 });
-
 export const signIn = async data => {
   try {
     const response = await apiAuthenticationService.post(`/sign-in`, data);
@@ -13,7 +11,6 @@ export const signIn = async data => {
     throw error;
   }
 };
-
 export const signUp = async user => {
   console.log(user);
   const data = new FormData();
@@ -24,7 +21,6 @@ export const signUp = async user => {
   data.append("image", user.image);
   data.append("bio", user.bio);
   data.append("password", user.password);
-
   console.log("data before sending to route", data);
   try {
     console.log("SERVICE");
@@ -34,11 +30,6 @@ export const signUp = async user => {
     throw error;
   }
 };
-
-<<<<<<< HEAD
-
-=======
->>>>>>> 11b8111ed317a37d5139e18f8093965adea3917b
 export const signOut = async () => {
   try {
     await apiAuthenticationService.post(`/sign-out`);
@@ -46,7 +37,6 @@ export const signOut = async () => {
     throw error;
   }
 };
-
 export const loadUserInformation = async () => {
   try {
     const response = await apiAuthenticationService.get(`/loaduser`);
@@ -55,7 +45,6 @@ export const loadUserInformation = async () => {
     throw error;
   }
 };
-
 // export const loadUserPicture = async post => {
 //   const data = new FormData();
 //   data.append("text", user.text);
@@ -68,7 +57,6 @@ export const loadUserInformation = async () => {
 //     throw error;
 //   }
 // };
-
 export const loadShopInformation = async () => {
   try {
     const response = await apiAuthenticationService.get(`/shopprofile`);
