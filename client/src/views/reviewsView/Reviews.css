@@ -1,19 +1,19 @@
-.reviewForm { 
-  background: green;
+.reviewForm {
+  background: yellow;
 }
 
 .linkReview {
   text-transform: uppercase;
 }
 
-.reviewListContainer { 
+.reviewListContainer {
   display: flex;
   flex-direction: column;
   justify-content: center;
   text-align: center;
 }
 
-.reviewImg { 
+.reviewImg {
   display: flex;
   justify-content: center;
   margin: 0 auto;
@@ -31,9 +31,32 @@
 .reviewP {
   color: white;
   font-size: 3em;
-
 }
 
-.linkReview { 
+.ReviewSingleView {
+  display: flex;
+  align-items: center;
+  flex-direction: column;
+  border: 3px purple solid;
+  margin-top:4em;
+  padding: 1em;
+  width: 30em;
+  height: 30em;
+}
 
+.ReviewSingleView img {
+  display: flex;
+  width: 20em;
+  height: 20em;
+}
+
+.mainSingleView {
+  display: flex;
+  justify-content: center;
+  /* align-content: center;  */
+}
+
+.reviewDelete{
+  display: flex;
+  justify-content: center;
 }

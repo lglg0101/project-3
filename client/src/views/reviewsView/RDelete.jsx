@@ -75,7 +75,7 @@ class ReviewDeleteView extends Component {
 	render() {
 		const review = this.state.review;
 		return (
-			<main>
+			<main className="reviewDelete">
 				{review && (
 					<form onSubmit={this.handleFormSubmission}>
 						<textarea
