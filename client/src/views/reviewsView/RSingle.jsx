@@ -34,6 +34,8 @@ class ReviewSingleView extends Component {
 				{review && (
 					<div>
 						<p>{review.text}</p>
+						<img src={review.text} alt=""/>
+					<Link to={`/stores/${review._shop}`}>Link to the Store</Link>
 						<Link to={`/${id}/edit`}>Edit Review</Link>
 					</div>
 				)}
