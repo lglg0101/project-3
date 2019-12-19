@@ -63,7 +63,6 @@ export default class ShopProfile extends Component {
 						{...this.props}
 						changeAuthenticationStatus={this.changeAuthenticationStatus}
 					/>{' '}
-					/>
 				</div>
 
 				{/* CHILD 2*/}

@@ -74,7 +74,7 @@ export default class UserProfile extends Component {
 									)}
 									{user.isShop && this.state.shop && (
 										<Link className="shopLink" to="/shopprofile">
-											{this.state.shop.shopName}'S Profile Page
+											{this.state.shop.shopName}'S Store Page
 										</Link>
 									)}
 								</div>
@@ -84,6 +84,7 @@ export default class UserProfile extends Component {
 								<div className="picContainer">
 									<img className="profilePic" src={user.image} alt="" />
 								</div>
+
 								<div className="bioContainer">
 									<h1>{user.bio}</h1>
 								</div>
@@ -95,9 +96,6 @@ export default class UserProfile extends Component {
 								{' '}
 								{/* <ReviewListView reviews={this.state.reviews} /> */}
 							</div>
-
-				
-							
 						</div>
 					</div>
 				)}
