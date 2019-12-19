@@ -3,6 +3,7 @@ import './HomePage.scss';
 import { Link } from 'react-router-dom';
 import Footer from './../components/Footer';
 import { signOut as signOutService } from './../services/authentication';
+// import bubblegum from '../images/bubblegum.jpg';
 
 class HomePage extends Component {
 	constructor(props) {
