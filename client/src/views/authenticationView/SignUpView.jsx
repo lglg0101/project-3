@@ -121,7 +121,7 @@ class AuthenticationSignUpView extends Component {
 							checked={this.state.isShop}
 							name="isShop"
 						/>
-						<button className="signUpBtn">Sign Up</button>
+						<button className="myButton">Sign Up</button>
 					</form>
 				</div>
 			</div>

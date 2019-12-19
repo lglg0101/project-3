@@ -2,13 +2,15 @@ const { Router } = require("express");
 const router = new Router();
 const Post = require("./../models/post");
 const Shop = require("./../models/shop");
-
-
 const multerMiddleware = require("./../middleware/multer-configuration");
+
+
+
 router.get("/list", async (req, res, next) => {
   try {
     const posts = await Post.find()
       .populate("_author")
+      .populate("_shop")
       .sort({ createdAt: -1 })
       .exec();
     //console.log(posts);
@@ -17,20 +19,11 @@ router.get("/list", async (req, res, next) => {
     next(error);
   }
 });
+
 router.post(
   "/create",
   multerMiddleware.single("image"),
   async (req, res, next) => {
-    // console.log("REQ BODY", req.body);
-    // console.log("REQ file", req.file);
-    // console.log("USER", req.session.user);
-    // const { title, body } = req.body;
-    // const data = {
-    //   text: req.body.content,
-    //   image: req.file.url,
-    //   _author: req.session.user,
-    //   // _shop: req.body.shopId
-    // };
     try {
       const shop = await Shop.findOne({_owner: req.session.user})
       const data = {

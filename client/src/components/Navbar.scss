@@ -1,28 +1,25 @@
-.navBar{
-  border: 3px solid purple;
-  display: flex;
-  justify-content: flex-end;
-  padding: 3em
-
+.navBar {
+	background: yellow;
+	border: 3px solid red;
+	display: flex;
+	justify-content: space-between;
+	padding: 0.2em;
+	width: 100vw;
 }
 
-.HomeLink{
-  
-		display: flex;
-		font-family: 'Libre Barcode 39 Extended Text', cursive;
-		color: black;
-		font-size: 5em;
+.HomeLink {
+	display: flex;
+	font-family: 'Fugaz One', cursive;
+	color: blue;
+	font-size: 3em;
 }
 
-.NavContainer{
-  display: flex;
-  justify-content: space-between;
-  }
+.NavContainer {
+	display: flex;
+	justify-content: space-between;
+}
 
-  .NavIcons img {
-    width: 2.5em; 
-    height: 2.5em;
-
-  }
-
-  
+.NavIcons img {
+	width: 1.5em;
+	height: 1.5em;
+}

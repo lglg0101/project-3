@@ -19,14 +19,16 @@ const bcryptjs = require("bcryptjs");
 // });
 
 router.post("/sign-up", (req, res, next) => {
-  const { username,
+  const { 
+    username,
     email,
     city,
     isShop,
     password,
-    bio
+    bio,
+    image
      } = req.body;
-  const image = req.file.url;
+  // const image = req.file.url;
   console.log("REEEEEEQ BOOOOODY", req.body);
 
   // let token = "";
@@ -128,7 +130,7 @@ router.post("/sign-in", (req, res, next) => {
 
 router.post("/sign-out", (req, res, next) => {
   req.session.destroy();
-  res.redirect(`/`); 
+  console.log(req.session)
   res.json({});
 });
 

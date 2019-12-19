@@ -1,41 +1,77 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import './HomePage.scss';
 import { Link } from 'react-router-dom';
 import Footer from './../components/Footer';
-import MapView from './../components/Map';
+import { signOut as signOutService } from './../services/authentication';
 
-export default function HomePage() {
-	return (
-		<div className="d-flex homeContainer">
-			<div className="d-flex headerContainer">
-				<h1>THRIFT POINT</h1>
+class HomePage extends Component {
+	constructor(props) {
+		super(props);
+		this.onSignOutTrigger = this.onSignOutTrigger.bind(this);
+	}
 
-				<div className="d-flex linksContainer">
-					<Link className="d-flex myButton" to="/sign-in">
-						SIGN IN
-					</Link>
-					<Link className="d-flex mybutton2" to="/sign-up">
-						SIGN UP
-					</Link>
-				</div>
-			</div>
+	async onSignOutTrigger() {
+		try {
+			await signOutService();
+			this.props.changeAuthenticationStatus(null);
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
-			<div className="d-flex flex-row stickerContainer">
-				<div className="d-flex community">
-					<Link className="d-flex homeLinkC" to="/community">
-						COMMUNITY
-					</Link>
+	render() {
+		const user = this.props.user;
+		return (
+			<Fragment>
+				<div className="d-flex homeContainer">
+					<div className="d-flex headerContainer">
+						<h1>THRIFT POINT</h1>
+
+						<div className="d-flex linksContainer">
+							{!user && (
+								<Link className="d-flex myButton" to="/sign-in">
+									SIGN IN
+								</Link>
+							)}
+
+							{!user && (
+								<Link className="d-flex myButton2" to="/sign-up">
+									SIGN UP
+								</Link>
+							)}
+
+							{user && (
+								<Link className="d-flex myButton" to="/userprofile">
+									YOUR PROFILE
+								</Link>
+							)}
+
+							{user && (
+								<Link className="d-flex myButton2" to="/sign-out">
+									SIGN OUT
+								</Link>
+							)}
+						</div>
+					</div>
+
+					<div className="d-flex stickerContainer">
+						<div className="d-flex community">
+							<Link className="d-flex homeLinkC" to="/community">
+								COMMUNITY
+							</Link>
+						</div>
+						<div className="d-flex stores">
+							<Link className="d-flex homeLinkS" to="/stores">
+								STORES
+							</Link>
+						</div>
+					</div>
+					<div></div>
 				</div>
-				<div className="stores">
-					<Link className="homeLinkS" to="/stores">
-						STORES
-					</Link>
-				</div>
-			</div>
-			<div>
-				
-			</div>
 				<Footer />
-		</div>
-	);
+			</Fragment>
+		);
+	}
 }
+
+export default HomePage;

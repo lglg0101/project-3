@@ -24,18 +24,18 @@ class ReviewListView extends Component {
 	// }
 
 	render() {
-		console.log('REVIEWS ON PROPS REVIEW LIST', this.props.reviews);
 		return (
-			<main>
+			<main className="reviewListContainer">
 				{this.props.reviews.map(review => (
 					<Link
 						className="linkReview"
 						key={review._id}
 						to={`/review/${review._id}`}
 					>
-						<h1>{review.text}</h1>
-						<img src={review.image} alt="" />
-						{/* <p>{review._author.username}</p> */}
+						<p className="reviewP">Shop Reviewed: {review._shop}</p>
+						<p className="reviewP">Reviewed By: {review._author.username}</p>
+						<h1 className="reviewH1">"{review.text}"</h1>
+						<img className="reviewImg" src={review.image} alt="" />
 					</Link>
 				))}
 			</main>

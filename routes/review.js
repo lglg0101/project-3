@@ -9,6 +9,7 @@ router.get("/list", async (req, res, next) => {
   try {
     const reviews = await Review.find()
       .populate("_author")
+      .populate("_shop")
       .sort({ createdAt: -1 })  
       .exec();
     // console.log("THIS IS WHERE THE BUG IS:" + reviews);

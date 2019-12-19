@@ -5,3 +5,35 @@
 .linkReview {
   text-transform: uppercase;
 }
+
+.reviewListContainer { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.reviewImg { 
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  width: 20em;
+  border: 3px solid white;
+}
+
+.reviewH1 {
+  color: aqua;
+  font-size: 2em;
+}
+
+.reviewP {
+  color: white;
+  font-size: 3em;
+
+}
+
+.linkReview { 
+
+}

@@ -23,12 +23,16 @@ class PostListView extends Component {
 	// }
 	render() {
 		return (
-			<main>
+			<main className = "postListContainer">
 				{this.props.posts.map(post => (
-					<Link key={post._id} to={`/post/${post._id}`}>
-						<h1>{post.text}</h1>
-						<img src={post.image} alt="" />
-						{/* <p>{post._author.username}</p> */}
+					<Link  
+					className="postLink" 
+					key={post._id} 
+					to={`/post/${post._id}`}>
+					
+					<p className="postP">Posted By: {post._author.username}</p>
+						<h1 className="postH1">{post.text}</h1>
+						<img className="postImg" src={post.image} alt="" />
 					</Link>
 				))}
 			</main>

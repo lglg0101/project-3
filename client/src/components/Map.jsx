@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { loadAllShops } from './../services/shops';
+import './../views/Stores.scss';
 // import api from "../../api";
 // import '../../index.scss';
 import mapboxgl from 'mapbox-gl/dist/mapbox-gl'; // NEW
@@ -27,10 +28,10 @@ export default class MapView extends Component {
 			container: this.mapRef.current,
 			style: 'mapbox://styles/mapbox/light-v10',
 			center: [lng, lat],
-			zoom: 8
+			zoom: 12
 		});
 		this.map.addControl(new mapboxgl.NavigationControl());
-		this.marker = new mapboxgl.Marker({ color: '#662d91' })
+		this.marker = new mapboxgl.Marker({ color: 'red' })
 			.setLngLat([lng, lat])
 			.addTo(this.map);
 		for (let i = 0; i < this.state.shops.length; i++) {
@@ -44,7 +45,7 @@ export default class MapView extends Component {
 			console.log('WHAT IS THE COORDINATES', this.state.shops[i].coordinates);
 			console.log('lng', lng, 'lat', lat);
 
-			new mapboxgl.Marker({ color: '#ffcc05' })
+			new mapboxgl.Marker({ color: 'blue' })
 				.setLngLat([lng, lat])
 				.setPopup(popup)
 				.addTo(this.map);
@@ -70,13 +71,15 @@ export default class MapView extends Component {
 	render() {
 		return (
 			<div className="Map">
-				<div className="map-header">
-					<h2>Find Shops nearby</h2>
-				</div>
+				<div className="map-header"></div>
 				<div className="map-container">
-					<div className="mapbox" ref={this.mapRef} style={{ height: 400 }} />
+					<div
+						className="mapbox"
+						ref={this.mapRef}
+						style={{ height: 400, width: 700 }}
+					/>
 				</div>
-				<h3>Click on the marker and visit them!</h3>
+				<h3>Click On The Marker To Visit The Store Page</h3>
 			</div>
 		);
 	}

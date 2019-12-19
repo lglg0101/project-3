@@ -54,7 +54,8 @@ router.get('/shopprofile', routeGuard, (req, res, next) => {
         name: req.body.shopName,
         location: req.body.location,
         telephone: req.body.telephone,
-        workingHours: req.body.workingHours
+        workingHours: req.body.workingHours,
+        bio: req.body.bio
         
 
       }

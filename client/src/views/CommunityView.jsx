@@ -68,15 +68,30 @@ export class CommunityView extends Component {
 				<div class="navBar">
 					<Navbar user={this.props.user} />
 				</div>
+
+				<div className="communityHeader">
+					<img
+						className="communityHeaderImg"
+						src="https://data.whicdn.com/images/124583663/original.png"
+						alt=""
+					/>
+				</div>
+
 				<div className="contentContainer">
 					<div className="postContainer">
-						<h1>Message Board</h1>
-						{/* <PostCreateView onPostCreated={this.fetchData} /> */}
+						<div className="messageBoardHeader">
+							<h1>Message Board</h1>
+							<p>Check Out What The Stores Around You Are Posting!</p>
+						</div>
+
 						<PostListView posts={this.state.posts} />
 					</div>
 
 					<div className="reviewContainer">
-						<h1>Reviews</h1>
+						<div className="reviewHeader">
+							<h1>Reviews</h1>
+							<p>These Are Some Of Our Other User's Reviews!</p>
+						</div>
 						<ReviewListView reviews={this.state.reviews} />
 					</div>
 				</div>

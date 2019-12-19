@@ -25,8 +25,6 @@ export const signUp = async data => {
 };
 
 
-
-
 export const signOut = async () => {
   try {
     await apiAuthenticationService.post(`/sign-out`);

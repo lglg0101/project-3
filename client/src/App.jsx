@@ -100,7 +100,17 @@ class App extends Component {
                 redirect="/error/401"
               /> */}
 							<Route exact path="/sign-out" component={SignOut} />
-							<Route exact path="/" component={HomePage} />
+							<Route
+								exact
+								path="/"
+								render={props => (
+									<HomePage
+										{...props}
+										user={this.state.user}
+										changeAuthenticationStatus={this.changeAuthenticationStatus}
+									/>
+								)}
+							/>
 							<Route exact path="/shop-info " component={ShopInfo} />
 							<Route
 								path="/shop-info"

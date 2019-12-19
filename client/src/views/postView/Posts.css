@@ -2,6 +2,34 @@
 
 }
 
-.postImage { 
-  width: 5em;
+.postListContainer { 
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  text-align: center;
+}
+
+.postImg { 
+  display: flex;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 2em;
+  margin-top: 2em;
+  width: 20em;
+  border: 3px solid red;
+}
+
+.postH1 {
+  color: aqua;
+  font-size: 2em;
+}
+
+.postP {
+  color: white;
+  font-size: 3em;
+
+}
+
+.postLink { 
+  text-transform: uppercase;
 }
