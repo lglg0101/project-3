@@ -68,7 +68,7 @@ export default class ShopProfile extends Component {
 
 				{/* CHILD 2*/}
 				<div className="shopHeader">
-					<h1>Welcome To Your Store Profile</h1>
+					<h1 className="title">Welcome To Your Store Profile</h1>
 					<p>
 						Make sure to keep your customers up to date with details of your
 						favorite items in your store!
@@ -89,14 +89,13 @@ export default class ShopProfile extends Component {
 						<div className="information">
 							<div className="shopInfo1">
 								{' '}
+								<img className="profilePic" src={shop.image} alt="" />
 								{user && user.isShop && (
-									<Link className="link" to="/userprofile">
+									<Link className="myButton" to="/userprofile">
 										GO Back To Your User Profile
 									</Link>
 								)}
-								<img className="profilePic" src={shop.image} alt="" />
-							</div>
-
+							</div>{' '}
 							{/* CHILD 5*/}
 							<div className="shopInfo2">
 								<div className="infoHeader">

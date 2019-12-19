@@ -29,12 +29,15 @@ text-align: center;
 background: aqua;
 }
 
-
+.pDescription {
+  color: white;
+  font-size: 20px;
+  text-align: center;
+}
 
 .postContainer {
 background: blue; 
-width: 45vw;
-
+/* width: 20vw; */
 }
 
 .reviewContainer { 

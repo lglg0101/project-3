@@ -74,6 +74,11 @@ class PostCreateView extends Component {
 		const post = this.state.post;
 		return (
 			<main>
+				<p className="pDescription">
+					Hey, Shop Owner. This is where you can connect with your community.
+					Let everyone know what cool things you have in store, or if you are in
+					need of more donations!
+				</p>
 				{post && (
 					<form onSubmit={this.handleFormSubmission}>
 						<textarea
@@ -83,7 +88,7 @@ class PostCreateView extends Component {
 							onChange={this.handleInputChange}
 						></textarea>
 						<input type="file" name="image" onChange={this.handleFileChange} />
-						<button>Create Post</button>
+						<button className="createLink">Create Post</button>
 					</form>
 				)}
 			</main>

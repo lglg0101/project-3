@@ -12,11 +12,49 @@
 	text-align: center;
 }
 
-.shopHeader h1 {
-	// font-family: 'Permanent Marker', cursive;
-	font-family: 'Bangers', cursive;
+.title {
+	font-family: 'Fugaz One', cursive;
+	// font-family: 'Bangers', cursive;
 	color: red;
 	font-size: 3em;
+}
+
+.myButton {
+	box-shadow: 2px 4px 5px -1px #eb007d;
+	// background: linear-gradient(to bottom, #eeff00 5%, #eb1a1a 100%);
+	// background-color: #eeff00;
+	background: black;
+	border-radius: 10px;
+	border: 3px solid #ffffff;
+	display: inline-block;
+	cursor: pointer;
+	color: #ffffff;
+	font-family: 'Press Start 2P', cursive;
+	font-size: 10px;
+	font-weight: bold;
+	font-style: italic;
+	padding: 12px 10px;
+	// margin: 1em;
+	text-decoration: none;
+	text-shadow: 3px 4px 0px purple;
+	// #ff6e6e;
+}
+.myButton:hover {
+	background: rgb(170, 128, 176);
+	background: linear-gradient(
+		121deg,
+		rgba(170, 128, 176, 1) 0%,
+		rgba(204, 11, 233, 1) 9%,
+		rgba(18, 233, 166, 1) 36%,
+		rgba(33, 0, 255, 1) 47%
+	);
+	// background: linear-gradient(to bottom, #03fa28 5%, #0022ff 100%);
+	// background-color: #03fa28;
+	// background-color: yellow;
+}
+.myButton:active {
+	position: relative;
+	top: 1px;
 }
 
 .shopHeader p {
@@ -58,6 +96,8 @@
 
 .link {
 	color: red;
+	font-size: 2em;
+	background: yellow;
 	padding: 1em;
 	text-decoration: underline;
 }
