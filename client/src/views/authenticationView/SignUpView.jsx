@@ -33,11 +33,10 @@ class AuthenticationSignUpView extends Component {
 	handleFileChange(event) {
 		//console.dir(event.target.files);
 		const file = event.target.files[0];
+		console.log(file);
 		this.setState({
-			user: {
-				...this.state.user,
-				image: file
-			}
+			...this.state,
+			image: file
 		});
 	}
 
@@ -99,7 +98,7 @@ class AuthenticationSignUpView extends Component {
 						<input
 							type="file"
 							placeholder="Add Picture"
-							value={this.state.image}
+							//value={this.state.image}
 							name="image"
 							onChange={this.handleFileChange}
 						/>
@@ -121,7 +120,7 @@ class AuthenticationSignUpView extends Component {
 							checked={this.state.isShop}
 							name="isShop"
 						/>
-						<button className="myButton">Sign Up</button>
+						<button className="signUpBtn">Sign Up</button>
 					</form>
 				</div>
 			</div>

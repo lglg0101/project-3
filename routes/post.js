@@ -4,8 +4,6 @@ const Post = require("./../models/post");
 const Shop = require("./../models/shop");
 const multerMiddleware = require("./../middleware/multer-configuration");
 
-
-
 router.get("/list", async (req, res, next) => {
   try {
     const posts = await Post.find()
@@ -24,6 +22,7 @@ router.post(
   "/create",
   multerMiddleware.single("image"),
   async (req, res, next) => {
+   
     try {
       const shop = await Shop.findOne({_owner: req.session.user})
       const data = {

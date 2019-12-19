@@ -8,7 +8,7 @@ export const create = async (post, shopId) => {
   const data = new FormData();
   data.append("content", post.content);
   data.append("image", post.image);
-    data.append("shopId", shopId);
+  data.append("shopId", shopId);
 
   console.log("data on service", data);
   try {

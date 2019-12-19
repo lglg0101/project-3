@@ -3,11 +3,24 @@ const shopService = axios.create({
   baseURL: "/shops"
 });
 
-export const shopInfo = async data => {
-  console.log("DATA ON SERVICE", data);
+export const shopInfo = async shop => {
+  console.log("DATA ON SERVICE", shop);
+  const data = new FormData();
+  data.append("shopName", shop.shopName);
+  data.append("telephone", shop.telephone);
+  data.append("image", shop.image);
+  data.append("workingHours", shop.workingHours);
+  data.append("shopAdress", shop.shopAdress);
+  data.append("bio", shop.bio);
+  data.append("lng", shop.coordinates[0]);
+  data.append("lat", shop.coordinates[1]);
+
+  console.log("DATA IN SERVICE", data);
+
   try {
     const response = await shopService.post(`/shop-info`, data);
-    return response.data.user;
+    console.log("RESPONSE IN SERVICE", response.data);
+    return response.data.shop;
   } catch (error) {
     throw error;
   }
