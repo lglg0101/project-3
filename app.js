@@ -8,7 +8,7 @@ const cookieParser = require("cookie-parser");
 const expressSession = require("express-session");
 const logger = require("morgan");
 const mongoose = require("mongoose");
-// const serveFavicon = require('serve-favicon');
+const serveFavicon = require('serve-favicon');
 
 const basicAuthenticationDeserializer = require("./middleware/basic-authentication-deserializer.js");
 const bindUserToViewLocals = require("./middleware/bind-user-to-view-locals.js");
@@ -23,13 +23,14 @@ const shopRouter = require("./routes/shopprofile");
 const shopInfo = require("./routes/shopInfo");
 
 const app = express();
-// //DEPLOYMENT//
-// app.get("*", (req, res, next) => {
-//   res.sendFile(join(__dirname, "client/build/index.html"));
-// });
 
-// app.use(express.state(join(__dirname, "client/build")));
-// app.use(serveFavicon(join(__dirname, 'client/build/favicon')));
+// //DEPLOYMENT//
+
+
+app.use(express.state(join(__dirname, "client/build")));
+
+app.use(serveFavicon(join(__dirname, 'client/build/favicon')));
+
 app.use(logger("dev"));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -54,18 +55,22 @@ app.use(
 app.use(basicAuthenticationDeserializer);
 app.use(bindUserToViewLocals);
 
-app.use("/", indexRouter);
-app.use("/authentication", authenticationRouter);
-app.use("/post", postRouter);
-app.use("/review", reviewRouter);
-app.use("/userprofile", profileRouter);
-app.use("/shopprofile", shopRouter);
-app.use("/shops", shopInfo);
+app.use("/api", indexRouter);
+app.use("/api/authentication", authenticationRouter);
+app.use("/api/post", postRouter);
+app.use("/api/review", reviewRouter);
+app.use("/api/userprofile", profileRouter);
+app.use("/api/shopprofile", shopRouter);
+app.use("/api/shops", shopInfo);
 
 
 // // Catch missing routes and forward to error handler
 //   next(createError(404));
 // });
+
+app.get("*", (req, res, next) => {
+  res.sendFile(join(__dirname, "client/build/index.html"));
+});
 
 // Catch all error handler
 app.use((error, req, res, next) => {
