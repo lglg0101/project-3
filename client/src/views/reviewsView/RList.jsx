@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import './Reviews.css';
 
@@ -24,21 +24,31 @@ class ReviewListView extends Component {
 	// }
 
 	render() {
+		console.log(this.props.reviews);
 		return (
-			<main className="reviewListContainer">
-				{this.props.reviews.map(review => (
-					<Link
-						className="linkReview"
-						key={review._id}
-						to={`/review/${review._id}`}
-					>
-						<p className="reviewP">Shop Reviewed: {review._shop}</p>
-						<p className="reviewP">Reviewed By: {review._author.username}</p>
-						<h1 className="reviewH1">"{review.text}"</h1>
-						<img className="reviewImg" src={review.image} alt="" />
-					</Link>
-				))}
-			</main>
+			<Fragment>
+				<main className="reviewListContainer">
+					{this.props.reviews.map(review => (
+						<Fragment>
+							<Link
+								className="linkReview"
+								key={review._id}
+								to={`/review/${review._id}`}
+							>
+								<p className="reviewP">
+									{' '}
+									Shop Reviewed: {review._shop.shopName}
+								</p>
+								<h2 className="reviewP">
+									Reviewed By: {review._author.username}
+								</h2>
+								<h1 className="reviewH1">"{review.text}"</h1>
+								<img className="reviewImg" src={review.image} alt="" />
+							</Link>
+						</Fragment>
+					))}
+				</main>
+			</Fragment>
 		);
 	}
 }
