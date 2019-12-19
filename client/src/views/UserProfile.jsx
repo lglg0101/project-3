@@ -51,14 +51,16 @@ export default class UserProfile extends Component {
 		const user = this.props.user;
 
 		return (
-			<div className="profileContainer">
+			<div className="profile">
 				{user && (
-					<div>
+					<div >
 						<div class="navBar">
 							<Navbar user={this.props.user} />
 						</div>
-						<div>
+						<div className="profileContainer">
+						<div className="titleContainer">
 							<h1 className="title">{user.username}'S Profile</h1>
+						</div>
 							<div>
 								<div className="shopLink">
 									{' '}
@@ -74,13 +76,16 @@ export default class UserProfile extends Component {
 							</div>
 
 							<div className="userInfo">
+							<div className='picContainer'>
 								<img
 									className="profilePic"
-									src="https://www.pinpng.com/pngs/m/457-4570044_3d-diamond-pixel-art-colorful-diamond-hd-png.png"
+									src={user.image} 
 									alt=""
 								/>
-								<img src={user.image} />
+						</div>
+						<div className='bioContainer'>
 								<h1>{user.bio}</h1>
+						</div>
 							</div>
 						</div>
 
@@ -90,7 +95,7 @@ export default class UserProfile extends Component {
 								{/* <ReviewListView reviews={this.state.reviews} /> */}
 							</div>
 
-							<div>
+							<div className='userPosts'>
 								{' '}
 								<h1>THIS IS WHERE POSTS GO</h1>
 								{/* <PostListView posts={this.state.posts} /> */}
