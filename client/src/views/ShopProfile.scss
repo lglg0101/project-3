@@ -13,17 +13,29 @@
 }
 
 .shopHeader h1 {
-	font-size: 5em;
+	// font-family: 'Permanent Marker', cursive;
+	font-family: 'Bangers', cursive;
+	color: red;
+	font-size: 3em;
+}
+
+.shopHeader p {
+	background: black;
+	color: white;
+	font-size: 15px;
 }
 
 .shopName {
-	border: 2px solid red;
+	// background: url('https://i.pinimg.com/564x/e8/7f/33/e87f33e3b3df211ff25947cbd31e2d17.jpg');
+	color: black;
 	display: flex;
 	justify-content: center;
+	text-decoration: underline;
+	margin-bottom: 2em;
 }
 
 .shopName h1 {
-	font-size: 10em;
+	font-size: 6em;
 }
 
 .shopInfo1 {
@@ -40,25 +52,33 @@
 }
 
 .profilePic {
-	width: 10em;
-	height: 10em;
+	width: 20em;
+	height: 20em;
 }
 
 .link {
 	color: red;
 	padding: 1em;
-	border: 1px solid aqua;
+	text-decoration: underline;
 }
 
 .infoHeader h1 {
-	color: green;
+	color: black;
 }
 
 .shopInfotext {
-	font-size: 2em;
-	background: white;
+	font-size: 1em;
+	background: black;
+	color: white;
+	font-size: monospace;
 }
 
 .shopLink {
 	text-transform: uppercase;
+}
+
+.shopInfo2 {
+	// // width: 40em;
+	// // height: 10em;
+	// background: blue;
 }

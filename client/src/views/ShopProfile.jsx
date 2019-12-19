@@ -85,7 +85,6 @@ export default class ShopProfile extends Component {
 				{shop && (
 					<div>
 						<div className="shopName">{shop && <h1>{shop.shopName}</h1>}</div>
-
 						{/* CHILD 4*/}
 						<div className="information">
 							<div className="shopInfo1">
@@ -95,12 +94,7 @@ export default class ShopProfile extends Component {
 										GO Back To Your User Profile
 									</Link>
 								)}
-								<img
-									className="profilePic"
-									src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/314bce20089461.562e551c5a984.png"
-									alt=""
-								/>
-								<img src={shop.image} alt="" />
+								<img className="profilePic" src={shop.image} alt="" />
 							</div>
 
 							{/* CHILD 5*/}
@@ -114,6 +108,7 @@ export default class ShopProfile extends Component {
 										Telephone Number:
 										{shop && <p>{shop.telephone}</p>}
 									</p>
+
 									<p className="shopInfotext">
 										Working Hours:
 										{shop && <p>{shop.workingHours}</p>}
@@ -129,7 +124,6 @@ export default class ShopProfile extends Component {
 								</div>
 							</div>
 						</div>
-
 						{/* CHILD 6*/}
 						<div className="contentDisplay">
 							{/* {user.isShop && ( */}
@@ -142,9 +136,11 @@ export default class ShopProfile extends Component {
 							</div>
 							{/* )} */}
 
-							<div className="reviewContainer">{/* <ReviewListView /> */}</div>
-						</div>
+							{/* <div className="reviewContainer">{/* <ReviewListView /> */}
+						</div>{' '}
+						*/}
 					</div>
+					// </div>
 				)}
 			</div>
 		);

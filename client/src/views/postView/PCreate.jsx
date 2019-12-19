@@ -77,7 +77,7 @@ class PostCreateView extends Component {
 				{post && (
 					<form onSubmit={this.handleFormSubmission}>
 						<textarea
-							placeholder="Write Your Post!"
+							placeholder="Write A Post To Your Customers! Tell them about any new products you have in, or if you need donations!"
 							value={post.content || ''}
 							name="content"
 							onChange={this.handleInputChange}
