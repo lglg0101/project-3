@@ -60,25 +60,31 @@ export default class SingleStoreView extends Component {
 						user={this.props.user}
 						{...this.props}
 						changeAuthenticationStatus={this.changeAuthenticationStatus}
-					/>{' '}
 					/>
+					
 				</div>
-				<h1>THERE IS SOMETHING HERE</h1>
+	
 
 				{/* {!this.state.shop && (
           <pre>{JSON.stringify(this.state.shop, 2, null)}</pre>
         )} */}
 				<div className="profileContainer">
-					<MapSingle />
+
 
 					{shop && (
 						<div>
 							<div>
 								<h1 className="title">{shop.shopName}</h1>
-								<div></div>
+								<div>
+
+								</div>
+								<div className='allOfShop'>
+								<div className='shopPictureContainer'>
+								<img className="shopPic" src={shop.image} alt="" />
+                </div>
 
 								<div className="shopInfo">
-									<img className="shopPic" src={shop.image} alt="" />
+							
 
 									<div className="shopInfo">
 										<h1>SHOP INFORMATION</h1>
@@ -92,8 +98,11 @@ export default class SingleStoreView extends Component {
 									</div>
 								</div>
 							</div>
+							</div>
+							<div className="ReviewsAndPosts">
+							<div className="ReviewsCreateAndPosted">
 
-							<div>
+							<div className="createReview">
 								{user && (
 									<ReviewCreateView
 										shop={this.state.shop}
@@ -101,19 +110,17 @@ export default class SingleStoreView extends Component {
 									/>
 								)}
 							</div>
-							<div className="contentDisplay">
-								<div>
+						
+								<div className='ReviewsStore'> 
 									{' '}
 									<ReviewListView reviews={this.state.reviews} />
 								</div>
-								<div>
+								</div>
+								<div className='PostsStore'>
 									<PostListView posts={this.state.posts} />
 								</div>
-								<div>
-									{' '}
-									<h1>THIS IS WHERE POSTS GO</h1>
 								</div>
-							</div>
+							
 						</div>
 					)}
 				</div>

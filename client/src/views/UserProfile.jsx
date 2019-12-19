@@ -96,11 +96,8 @@ export default class UserProfile extends Component {
 								{/* <ReviewListView reviews={this.state.reviews} /> */}
 							</div>
 
-							<div className="userPosts">
-								{' '}
-								<h1>THIS IS WHERE POSTS GO</h1>
-								{/* <PostListView posts={this.state.posts} /> */}
-							</div>
+				
+							
 						</div>
 					</div>
 				)}
