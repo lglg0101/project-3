@@ -12,7 +12,7 @@ import ReviewSingleView from './reviewsView/RSingle';
 import ReviewListView from './reviewsView/RList';
 import { list as listReviewService } from './../services/reviews';
 
-import communityImg from '../images/community2.png';
+import communityImg from '../images/tapecommunity.png';
 
 import Navbar from './../components/Navbar';
 
