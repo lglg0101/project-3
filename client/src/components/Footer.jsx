@@ -7,16 +7,18 @@ class Footer extends Component {
 	// 	super(props);
 	// 	this.onSignOutTrigger = this.onSignOutTrigger.bind(this);
 	// }
+
 	render() {
 		const user = this.props.user;
 		return (
-			<nav>
+			<footer>
 				<Fragment>
 					<div className="footer">
-						<h2>Welcome To Your Local Thrift Community</h2>
+						
+						<p>Welcome To Your Local Thrift CommunityOur Mission Is To Make You Hotter And The Planet Cooler #slowfashion #thriftcommunity</p>
 					</div>
 				</Fragment>
-			</nav>
+			</footer>
 		);
 	}
 }

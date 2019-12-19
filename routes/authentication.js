@@ -3,10 +3,10 @@
 const { Router } = require("express");
 const router = new Router();
 const User = require("./../models/user");
-const Shop =  require("./../models/shop");
+// const Shop =  require("./../models/shop");
 const bcryptjs = require("bcryptjs");
-const nodemailer = require("nodemailer");
-const express = require("express");
+// const nodemailer = require("nodemailer");
+// const express = require("express");
 
 //SIGN UP
 
@@ -23,13 +23,12 @@ router.post("/sign-up", (req, res, next) => {
     email,
     city,
     isShop,
-    image,
     password,
     bio
      } = req.body;
+  const image = req.file.url;
   console.log("REEEEEEQ BOOOOODY", req.body);
-  
-  //const image = req.file.url;
+
   // let token = "";
   // const generateId = length => {
   //   const characters =
@@ -40,8 +39,10 @@ router.post("/sign-up", (req, res, next) => {
   // };
 
   // generateId(12);
+
   bcryptjs
     .hash(password, 10)
+
     .then(hash => {
       return User.create({
        username,
@@ -127,8 +128,10 @@ router.post("/sign-in", (req, res, next) => {
 
 router.post("/sign-out", (req, res, next) => {
   req.session.destroy();
+  res.redirect(`/`); 
   res.json({});
 });
+
 
 router.get("/loaduser", async (req, res, next) => {
   const userId = req.session.user;

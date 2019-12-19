@@ -12,7 +12,7 @@ import AuthenticationSignInView from './views/authenticationView/LoginView';
 import Navbar from './components/Navbar';
 
 import HomePage from './views/HomePage';
-
+import SignOut from './views/authenticationView/SignOutView';
 import CommunityView from './views/CommunityView';
 
 import PostCreateView from './views/postView/PCreate';
@@ -90,15 +90,6 @@ class App extends Component {
 		return (
 			<div className="home">
 				<BrowserRouter>
-					{/* <header className="homeheader">
-						<h1>THIS IS THE THRIFT APP</h1>
-					</header> */}
-					{/* 
-					<Navbar
-						user={this.state.user}
-						changeAuthenticationStatus={this.changeAuthenticationStatus}
-					/> */}
-
 					{this.state.loaded && (
 						<Switch>
 							{/* <ProtectedRoute
@@ -108,6 +99,7 @@ class App extends Component {
                 verify={this.verifyAuthentication}
                 redirect="/error/401"
               /> */}
+							<Route exact path="/sign-out" component={SignOut} />
 							<Route exact path="/" component={HomePage} />
 							<Route exact path="/shop-info " component={ShopInfo} />
 							<Route

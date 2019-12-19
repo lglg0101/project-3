@@ -1,17 +1,10 @@
 body {
-	// background: url('./../images/background.png');
-	// background: url('./../images/metallic.jpg');
-	// background: black;
-	background: rgb(233, 40, 11);
-	background: linear-gradient(
-		121deg,
-		rgba(233, 40, 11, 1) 0%,
-		rgba(223, 227, 32, 1) 100%
-	);
-	background-size: cover;
-	background-repeat: no-repeat;
-	margin: 0 auto;
+	// margin: 0;
+	// background: yellow;
+	background: url('https://i.pinimg.com/564x/8c/d0/52/8cd0525c289624d9257186660f85eb7a.jpg');
+	background-repeat: repeat;
 }
+
 
 .homeContainer {
 	// border: 3px solid red;
@@ -29,7 +22,8 @@ body {
 		text-align: center;
 		display: flex;
 		font-family: 'Libre Barcode 39 Extended Text', cursive;
-		color: black;
+		// background: white;
+		color: white;;
 		font-size: 5em;
 	}
 
@@ -53,27 +47,27 @@ body {
 	}
 
 	.community {
-		// border: 3px solid yellow;
+		border: 7px solid white;
 		display: flex;
-		border-radius: 1em;
-		background: url('./../images/sticker.jpg');
+		border-radius: 0.5em;
+		background: url('https://files.slack.com/files-pri/T02CQ4EN4-FRXMB3PK8/bubblegum.png');
 		background-size: cover;
 		background-repeat: no-repeat;
 		align-self: flex-end;
-		height: 27em;
-		width: 27em;
+		height: 30em;
+		width: 30em;
 	}
 
 	.stores {
-		// border: 3px solid green;
+		border: 7px solid white;
 		display: flex;
-		border-radius: 1em;
+		border-radius: 0.5em;
 		background: url('./../images/3.png');
 		background-size: cover;
 		background-repeat: no-repeat;
 		align-self: flex-start;
-		height: 27em;
-		width: 27em;
+		height: 30em;
+		width: 30em;
 	}
 
 	.homeLinkS {
@@ -82,7 +76,7 @@ body {
 		width: 8em;
 		height: 2em;
 		display: flex;
-		font-family: 'Monofett', cursive;
+		font-family: 'Press Start 2P', cursive;
 		text-decoration: none;
 		color: black;
 		font-size: 3em;
@@ -99,7 +93,7 @@ body {
 		margin-top: 0.2em;
 		width: 10em;
 		height: 2em;
-		font-family: 'Monofett', cursive;
+		font-family: 'Press Start 2P', cursive;
 		text-decoration: none;
 		color: black;
 		font-size: 3em;
@@ -107,10 +101,10 @@ body {
 
 	.linksContainer {
 		display: flex;
-		flex-direction: column;
-		// border: 9px solid yellow;
-		width: 16em;
-		height: 15em;
+		flex-direction: row;
+		// border: 2px solid red;
+		width: 35em;
+		height: 6em;
 	}
 
 	.linksAndStores {
@@ -128,12 +122,79 @@ body {
 		color: blue;
 		font-size: 3em;
 	}
-}
 
-// font-family: 'Sirin Stencil', cursive;
-// font-family: 'Zilla Slab Highlight', cursive;
-// font-family: 'Bungee Shade', cursive;
-// font-family: 'Londrina Outline', cursive;
-// font-family: 'Monofett', cursive;
-// font-family: 'Libre Barcode 39 Extended', cursive;
-// font-family: 'Libre Barcode 39 Extended Text', cursive;
+	// font-family: 'Sirin Stencil', cursive;
+	// font-family: 'Zilla Slab Highlight', cursive;
+	// font-family: 'Bungee Shade', cursive;
+	// font-family: 'Londrina Outline', cursive;
+	// font-family: 'Monofett', cursive;
+	// font-family: 'Libre Barcode 39 Extended', cursive;
+	// font-family: 'Libre Barcode 39 Extended Text', cursive;
+
+	.myButton {
+		box-shadow: 2px 4px 5px -1px #eb007d;
+		background: linear-gradient(to bottom, #eeff00 5%, #eb1a1a 100%);
+		background-color: #eeff00;
+		border-radius: 42px;
+		border: 3px solid #ffffff;
+		display: inline-block;
+		cursor: pointer;
+		color: #ffffff;
+		font-family: Courier New;
+		font-size: 21px;
+		font-weight: bold;
+		font-style: italic;
+		padding: 4px 25px;
+		margin: 1em;
+		text-decoration: none;
+		text-shadow: 3px 4px 0px #ff6e6e;
+	}
+	.myButton:hover {
+		background: linear-gradient(to bottom, #eb1a1a 5%, #eeff00 100%);
+		background-color: #eb1a1a;
+	}
+	.myButton:active {
+		position: relative;
+		top: 1px;
+	}
+
+	.mybutton2 {
+		box-shadow: 2px 4px 5px -1px #ff5900;
+		background: linear-gradient(to bottom, #0022ff 5%, #03fa28 100%);
+		background-color: #0022ff;
+		border-radius: 42px;
+		border: 3px solid #ffffff;
+		display: inline-block;
+		cursor: pointer;
+		color: #ffffff;
+		font-family: Courier New;
+		font-size: 21px;
+		font-weight: bold;
+		font-style: italic;
+		padding: 4px 25px;
+		margin: 1em;
+		text-decoration: none;
+		text-shadow: 4px 3px 0px #0048ff;
+	}
+	.mybutton2:hover {
+		background: linear-gradient(to bottom, #03fa28 5%, #0022ff 100%);
+		background-color: #03fa28;
+	}
+
+	.mybutton2:active {
+		position: relative;
+		top: 1px;
+	}
+
+	.footer {
+		background: aqua;
+		margin-top: 1em;
+		font-family: monospace;
+		text-align: center;
+	}
+	.footer p {
+		// background: aqua;
+		text-align: center;
+		font-size: 1em;
+	}
+}
