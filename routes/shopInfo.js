@@ -7,15 +7,15 @@ const Shop = require("./../models/shop");
 const routeGuard = require("./../middleware/route-guard");
 const uploader = require("../middleware/multer-configuration");
 
-router.post("/shop-info", (req, res, next) => {
+router.post("/shop-info", uploader.single("image"), (req, res, next) => {
   console.log("REQ BODY", req.body);
-
+  const image = (req.file.url && req.file.url) || "";
   const {
     shopName,
-    coordinates,
+    lng,
+    lat,
     shopAdress,
     telephone,
-    image,
     workingHours,
     bio
   } = req.body;
@@ -23,7 +23,7 @@ router.post("/shop-info", (req, res, next) => {
   return Shop.create({
     shopName,
     shopAdress,
-    coordinates,
+    coordinates: [lng, lat],
     telephone,
     image,
     workingHours,
@@ -32,7 +32,7 @@ router.post("/shop-info", (req, res, next) => {
   })
     .then(shop => {
       console.log(shop);
-      req.session.shop = shop._id;
+      //req.session.shop = shop._id;
       res.json({ shop });
     })
     .catch(error => {

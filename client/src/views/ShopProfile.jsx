@@ -1,142 +1,147 @@
-import React, { Component, Fragment } from 'react';
+import React, { Component, Fragment } from "react";
 
-import PostListView from './postView/PList';
-import PostCreateView from './postView/PCreate';
-import ReviewListView from './reviewsView/RList';
-import { Link } from 'react-router-dom';
-import './ShopProfile.scss';
+import PostListView from "./postView/PList";
+import PostCreateView from "./postView/PCreate";
+import ReviewListView from "./reviewsView/RList";
+import { Link } from "react-router-dom";
+import "./ShopProfile.scss";
 
-import { loadUserInformation } from './../services/authentication.js';
-import { list as listReviewService } from './../services/reviews.js';
-import { postsForShop } from './../services/posts.js';
-import { loadAllShops, loadShopInfo, loadMyShop } from './../services/shops.js';
+import { loadUserInformation } from "./../services/authentication.js";
+import { list as listReviewService } from "./../services/reviews.js";
+import { postsForShop } from "./../services/posts.js";
+import { loadAllShops, loadShopInfo, loadMyShop } from "./../services/shops.js";
 
-import Navbar from './../components/Navbar';
-import './../components/Navbar.scss';
+import Navbar from "./../components/Navbar";
+import "./../components/Navbar.scss";
 
 export default class ShopProfile extends Component {
-	constructor(props) {
-		super(props);
-		this.state = {
-			reviews: [],
-			posts: [],
-			shop: null
-		};
-		// this.fetchData = this.fetchData.bind(this);
-	}
+  constructor(props) {
+    super(props);
+    this.state = {
+      reviews: [],
+      posts: [],
+      shop: null
+    };
+    // this.fetchData = this.fetchData.bind(this);
+  }
 
-	async fetchData() {
-		try {
-			const posts = await postsForShop();
-			console.log('POSTS AFTER FECTH', posts);
-			this.setState({
-				posts
-				// reviews
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	}
+  async fetchData() {
+    try {
+      const posts = await postsForShop();
+      console.log("POSTS AFTER FECTH", posts);
+      this.setState({
+        posts
+        // reviews
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
 
-	async componentDidMount() {
-		this.fetchData();
-		try {
-			const shop = await loadMyShop();
-			this.setState({
-				shop: shop
-			});
-		} catch (error) {
-			console.log(error);
-		}
-	}
-	render() {
-		const user = this.props.user;
-		const shop = this.state.shop;
-		console.log(shop);
+  async componentDidMount() {
+    this.fetchData();
+    try {
+      const shop = await loadMyShop();
+      this.setState({
+        shop: shop
+      });
+    } catch (error) {
+      console.log(error);
+    }
+  }
+  render() {
+    const user = this.props.user;
+    const shop = this.state.shop;
+    console.log(shop);
 
-		return (
-			<div className="shopProfileContainer">
-				{/* CHILD 1 */}
-				<div className="navBar">
-					<Navbar user={this.props.user} />
-				</div>
+    return (
+      <div className="shopProfileContainer">
+        {/* CHILD 1 */}
+        <div className="navBar">
+          <Navbar user={this.props.user} />
+        </div>
 
-				{/* CHILD 2*/}
-				<div className="shopHeader">
-					<h1>Welcome To Your Store Profile</h1>
-					<p>
-						Make sure to keep your customers up to date with details of your
-						favorite items in your store!
-					</p>
-				</div>
+        {/* CHILD 2*/}
+        <div className="shopHeader">
+          <h1>Welcome To Your Store Profile</h1>
+          <p>
+            Make sure to keep your customers up to date with details of your
+            favorite items in your store!
+          </p>
+        </div>
 
-				{/* {!this.state.shop && (
+        {/* {!this.state.shop && (
           <pre>{JSON
           .stringify(this.state.shop, 2, null)}</pre>
         )} */}
 
-				{/* CHILD 3*/}
-				<div className="shopName">{shop && <h1>{shop.shopName}</h1>}</div>
+        {/* CHILD 3*/}
 
-				{/* CHILD 4*/}
-				<div className="information">
-					<div className="shopInfo1">
-						{' '}
-						{user && user.isShop && (
-							<Link className="link" to="/userprofile">
-								GO Back To Your User Profile
-							</Link>
-						)}
-						<img
-							className="profilePic"
-							src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/314bce20089461.562e551c5a984.png"
-							alt=""
-						/>
-						{/* <img src={shop.image} alt="" /> */}
-					</div>
+        {shop && (
+          <div>
+            <div className="shopName">{shop && <h1>{shop.shopName}</h1>}</div>
 
-					{/* CHILD 5*/}
-					<div className="shopInfo2">
-						<div className="infoHeader">
-							<h1>STORE INFORMATION</h1>
-						</div>
+            {/* CHILD 4*/}
+            <div className="information">
+              <div className="shopInfo1">
+                {" "}
+                {user && user.isShop && (
+                  <Link className="link" to="/userprofile">
+                    GO Back To Your User Profile
+                  </Link>
+                )}
+                <img
+                  className="profilePic"
+                  src="https://mir-s3-cdn-cf.behance.net/project_modules/disp/314bce20089461.562e551c5a984.png"
+                  alt=""
+                />
+                <img src={shop.image} alt="" />
+              </div>
 
-						<div>
-							<p className="shopInfotext">
-								Telephone Number:
-								{shop && <p>{shop.telephone}</p>}
-							</p>
-							<p className="shopInfotext">
-								Working Hours:
-								{shop && <p>{shop.workingHours}</p>}
-							</p>
-							<p className="shopInfotext">
-								Address:
-								{shop && <p>{shop.shopAdress} </p>}
-							</p>
-							<p className="shopInfotext">
-								BIO:
-								{shop && <p>{shop.bio} </p>}
-							</p>
-						</div>
-					</div>
-				</div>
+              {/* CHILD 5*/}
+              <div className="shopInfo2">
+                <div className="infoHeader">
+                  <h1>STORE INFORMATION</h1>
+                </div>
 
-				{/* CHILD 6*/}
-				<div className="contentDisplay">
-					{/* {user.isShop && ( */}
-					<div className="postContainer">
-						<PostCreateView
-							shop={this.state.shop}
-							onPostCreated={this.fetchData}
-						/>
-						<PostListView shop={this.state.shop} posts={this.state.posts} />
-					</div>
-					{/* )} */}
+                <div>
+                  <p className="shopInfotext">
+                    Telephone Number:
+                    {shop && <p>{shop.telephone}</p>}
+                  </p>
+                  <p className="shopInfotext">
+                    Working Hours:
+                    {shop && <p>{shop.workingHours}</p>}
+                  </p>
+                  <p className="shopInfotext">
+                    Address:
+                    {shop && <p>{shop.shopAdress} </p>}
+                  </p>
+                  <p className="shopInfotext">
+                    BIO:
+                    {shop && <p>{shop.bio} </p>}
+                  </p>
+                </div>
+              </div>
+            </div>
 
-					<div className="reviewContainer">{/* <ReviewListView /> */}</div>
-				</div>
-			</div>
-		);
-	}
+            {/* CHILD 6*/}
+            <div className="contentDisplay">
+              {/* {user.isShop && ( */}
+              <div className="postContainer">
+                <PostCreateView
+                  shop={this.state.shop}
+                  onPostCreated={this.fetchData}
+                />
+                <PostListView shop={this.state.shop} posts={this.state.posts} />
+              </div>
+              {/* )} */}
+
+              <div className="reviewContainer">{/* <ReviewListView /> */}</div>
+            </div>
+          </div>
+        )}
+      </div>
+    );
+  }
 }

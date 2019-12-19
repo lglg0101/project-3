@@ -4,7 +4,6 @@ const apiAuthenticationService = axios.create({
   baseURL: "/authentication"
 });
 
-
 export const signIn = async data => {
   try {
     const response = await apiAuthenticationService.post(`/sign-in`, data);
@@ -15,17 +14,26 @@ export const signIn = async data => {
   }
 };
 
-export const signUp = async data => {
+export const signUp = async user => {
+  console.log(user);
+  const data = new FormData();
+  data.append("username", user.username);
+  data.append("email", user.email);
+  data.append("city", user.city);
+  data.append("isShop", user.isShop);
+  data.append("image", user.image);
+  data.append("bio", user.bio);
+  data.append("password", user.password);
+
+  console.log("data before sending to route", data);
   try {
+    console.log("SERVICE");
     const response = await apiAuthenticationService.post(`/sign-up`, data);
     return response.data.user;
   } catch (error) {
     throw error;
   }
 };
-
-
-
 
 export const signOut = async () => {
   try {
@@ -56,7 +64,6 @@ export const loadUserInformation = async () => {
 //     throw error;
 //   }
 // };
-
 
 export const loadShopInformation = async () => {
   try {

@@ -5,54 +5,27 @@ const router = new Router();
 const User = require("./../models/user");
 // const Shop =  require("./../models/shop");
 const bcryptjs = require("bcryptjs");
-// const nodemailer = require("nodemailer");
-// const express = require("express");
+const multerMiddleware = require("./../middleware/multer-configuration");
 
-//SIGN UP
-
-// const transporter = nodemailer.createTransport({
-//   service: 'Gmail',
-//   auth: {
-//     user: process.env.EMAIL,
-//     pass: process.env.PASSWORD
-//   }
-// });
-
-router.post("/sign-up", (req, res, next) => {
-  const { username,
-    email,
-    city,
-    isShop,
-    password,
-    bio
-     } = req.body;
-  const image = req.file.url;
+router.post("/sign-up", multerMiddleware.single("image"), (req, res, next) => {
   console.log("REEEEEEQ BOOOOODY", req.body);
-
-  // let token = "";
-  // const generateId = length => {
-  //   const characters =
-  //   '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-  //   for (let i = 0; i < length; i++) {
-  //     token += characters[Math.floor(Math.random() * characters.length)];
-  //   }
-  // };
-
-  // generateId(12);
+  console.log("REEEEEE;Q FILEEEEE", req.file);
+  const { username, email, city, isShop, password, bio } = req.body;
+  const image = (req.file.url && req.file.url) || " ";
+  console.log(image);
 
   bcryptjs
     .hash(password, 10)
 
     .then(hash => {
       return User.create({
-       username,
-				email,
-				city,
-				isShop,
-				image,
+        username,
+        email,
+        city,
+        isShop,
+        image,
         bio,
-				passwordHash: hash
-				
+        passwordHash: hash
       });
     })
     .then(user => {
@@ -128,10 +101,9 @@ router.post("/sign-in", (req, res, next) => {
 
 router.post("/sign-out", (req, res, next) => {
   req.session.destroy();
-  res.redirect(`/`); 
+  res.redirect(`/`);
   res.json({});
 });
-
 
 router.get("/loaduser", async (req, res, next) => {
   const userId = req.session.user;
