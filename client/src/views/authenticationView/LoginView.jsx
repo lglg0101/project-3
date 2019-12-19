@@ -55,7 +55,7 @@ class AuthenticationSignInView extends Component {
 							name="password"
 							onChange={this.handleInputChange}
 						/>
-							<button className = "myButton">Sign In</button>
+						<button className="myButton">Sign In</button>
 					</form>
 				</div>
 			</div>

@@ -6,11 +6,15 @@ import Navbar from '../components/Navbar';
 import MapView from '../components/Map';
 import './Stores.scss';
 
-export default function Stores() {
+export default function Stores(props) {
+	console.log(props);
 	return (
 		<div className="d-flex storesContainer">
 			<div className="d-flex linksContainer">
-				<Navbar />
+				<Navbar
+					{...props}
+					// changeAuthenticationStatus={this.changeAuthenticationStatus}
+				/>
 			</div>
 			<div className="d-flex storesheader">
 				<h1 className="storesH1">THESE ARE THE THRIFT STORES AROUND YOU!</h1>
@@ -22,6 +26,7 @@ export default function Stores() {
 			<div>
 				<MapView />
 			</div>
+
 			<div>
 				<Footer />
 			</div>

@@ -44,6 +44,7 @@ class ReviewListView extends Component {
 								</h2>
 								<h1 className="reviewH1">"{review.text}"</h1>
 								<img className="reviewImg" src={review.image} alt="" />
+								<h2 className="createdBy">Created At: {review.createdAt}</h2>
 							</Link>
 						</Fragment>
 					))}

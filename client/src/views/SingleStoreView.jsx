@@ -56,7 +56,12 @@ export default class SingleStoreView extends Component {
 		return (
 			<div>
 				<div className="navBar">
-					<Navbar user={this.props.user} />
+					<Navbar
+						user={this.props.user}
+						{...this.props}
+						changeAuthenticationStatus={this.changeAuthenticationStatus}
+					/>{' '}
+					/>
 				</div>
 				<h1>THERE IS SOMETHING HERE</h1>
 

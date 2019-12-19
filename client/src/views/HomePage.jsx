@@ -47,9 +47,12 @@ class HomePage extends Component {
 							)}
 
 							{user && (
-								<Link className="d-flex myButton2" to="/sign-out">
+								<button
+									className="d-flex myButton2"
+									onClick={this.onSignOutTrigger}
+								>
 									SIGN OUT
-								</Link>
+								</button>
 							)}
 						</div>
 					</div>

@@ -12,6 +12,8 @@ import ReviewSingleView from './reviewsView/RSingle';
 import ReviewListView from './reviewsView/RList';
 import { list as listReviewService } from './../services/reviews';
 
+import communityImg from '../images/community2.png';
+
 import Navbar from './../components/Navbar';
 
 export class CommunityView extends Component {
@@ -66,15 +68,16 @@ export class CommunityView extends Component {
 		return (
 			<div className="communityContainer">
 				<div class="navBar">
-					<Navbar user={this.props.user} />
+					<Navbar
+						user={this.props.user}
+						{...this.props}
+						changeAuthenticationStatus={this.changeAuthenticationStatus}
+					/>{' '}
+					/>
 				</div>
 
 				<div className="communityHeader">
-					<img
-						className="communityHeaderImg"
-						src="https://data.whicdn.com/images/124583663/original.png"
-						alt=""
-					/>
+					<img className="communityHeaderImg" src={communityImg} alt="" />
 				</div>
 
 				<div className="contentContainer">

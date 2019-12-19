@@ -88,11 +88,14 @@ router.post("/sign-in", (req, res, next) => {
       next(error);
     });
 });
+
+
 router.post("/sign-out", (req, res, next) => {
   req.session.destroy();
-  res.redirect(`/`);
+  // res.redirect(`/`);
   res.json({});
 });
+
 router.get("/loaduser", async (req, res, next) => {
   const userId = req.session.user;
   if (!userId) {

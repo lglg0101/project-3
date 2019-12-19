@@ -99,7 +99,7 @@ class App extends Component {
                 verify={this.verifyAuthentication}
                 redirect="/error/401"
               /> */}
-							<Route exact path="/sign-out" component={SignOut} />
+							{/* <Route exact path="/sign-out" component={SignOut} /> */}
 							<Route
 								exact
 								path="/"
