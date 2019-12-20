@@ -36,7 +36,7 @@ export default class MapView extends Component {
 			.addTo(this.map);
 		for (let i = 0; i < this.state.shops.length; i++) {
 			let popup = new mapboxgl.Popup().setHTML(
-				`<a class="linkClass" href="https://thrift-point.herokuapp.com/stores/${this.state.shops[i]._id}"<b>${this.state.shops[i].shopName}</b> <br>
+				`<a class="linkClass" href="https://localhost:3000/stores/${this.state.shops[i]._id}"<b>${this.state.shops[i].shopName}</b> <br>
         </a>
       `
 			);
@@ -79,7 +79,7 @@ export default class MapView extends Component {
 						style={{ height: 400, width: 700 }}
 					/>
 				</div>
-				<h3>Click On The Marker To Visit The Store Page</h3>
+				<h3 className="storeClick">Click On The Marker To Visit The Store Page</h3>
 			</div>
 		);
 	}

@@ -1,5 +1,6 @@
 .reviewForm {
   background: yellow;
+  width: 100%;
 }
 
 .linkReview {
@@ -11,6 +12,7 @@
   flex-direction: column;
   justify-content: center;
   text-align: center;
+  width: 100%;
 }
 
 .reviewImg {
@@ -38,10 +40,10 @@
   align-items: center;
   flex-direction: column;
   border: 3px yellow solid;
-  margin-top:4em;
+  margin-top: 4em;
   padding: 1em;
-  width: 30em;
-  height: 30em;
+  width: 100%;
+
   background: red;
 }
 
@@ -52,34 +54,30 @@
 }
 
 .mainSingleView {
-
   display: flex;
   justify-content: center;
-  align-content: center; 
+  align-content: center;
 }
 
-.reviewDelete{
+.reviewDelete {
   display: flex;
   justify-content: center;
 }
-.createdAt{
+.createdAt {
   color: black;
   font-size: 1em;
-
 }
 
 .reviewColor {
-color: yellow;
-font-size: 2em;
-
+  color: yellow;
+  font-size: 2em;
 }
 
-.EditReviews{
+.EditReviews {
   padding: 0.5em;
-  
 }
 
-.EditReviewsp{
+.EditReviewsp {
   margin-top: 1em;
   font-family: monospace;
   font-size: 15px;
@@ -87,12 +85,41 @@ font-size: 2em;
   font-weight: 600;
 }
 
-
-
-
 .ReviewSingleView p {
   color: white;
   font-family: monospace;
   font-size: 20px;
+}
 
+.ReviewBtn {
+  background-color: black;
+  color: white;
+  font-family: monospace;
+  width: 10em;
+  display: flex;
+  padding: 1em;
+}
+
+.reviewFormContainer {
+  display: flex;
+  align-items: center;
+  width: 100%;
+}
+
+.reviewFormContainer textarea {
+  width: 100%;
+  font-family: monospace;
+}
+
+.oneReview,
+.oneReviewText {
+  width: 100%;
+}
+
+.oneReviewText {
+  /* border: 3px solid white; */
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+  height: 200px;
 }

@@ -95,7 +95,7 @@ class ReviewCreateView extends Component {
     return (
       <main className="reviewForm">
         {review && (
-          <form onSubmit={this.handleFormSubmission}>
+          <form class="reviewFormContainer" onSubmit={this.handleFormSubmission}>
             <textarea
               placeholder="Write Your Review Here"
               value={review.text || ""}
@@ -116,7 +116,7 @@ class ReviewCreateView extends Component {
 									className="icon"
 								/> */}
 
-            <button>Write Review</button>
+            <button class="ReviewBtn" >Write Review</button>
           </form>
         )}
       </main>

@@ -46,9 +46,13 @@ class ReviewListView extends Component {
 								</h2>
 								<h2 className="reviewColor"> {review._author.username}</h2>
 								<Rating/>
+								<div className="oneReview">
+								<div className="oneReviewText">
 								<h1 className="reviewH1">"{review.text}"</h1>
+								</div>
 								<img className="reviewImg" src={review.image} alt="" />
 								<h2 className="createdAt">Created At: {review.createdAt}</h2>
+								</div>
 							</Link>
 						</Fragment>
 					))}
