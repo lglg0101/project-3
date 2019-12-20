@@ -44,7 +44,7 @@ class ReviewListView extends Component {
 								<h2 className="reviewP">
 									Reviewed By:
 								</h2>
-								<h2 className="reviewColor"> {review._author.username}</h2>
+								<h2 className="reviewColor">{review._author.username}</h2>
 								<Rating/>
 								<div className="oneReview">
 								<div className="oneReviewText">
