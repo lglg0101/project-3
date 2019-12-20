@@ -8,6 +8,7 @@
 }
 
 .LoginFormDiv {
+	display: flex;
 	width: 10em;
 }
 .Loginform input {
@@ -61,7 +62,7 @@ form {
 	text-align: center;
 	display: flex;
 	flex-direction: column;
-	padding: 1em 4.2em;
+	padding: 1em 3em;
 }
 
 .SignUpForm label {
@@ -70,9 +71,9 @@ form {
 	margin-top: 1em;
 	background: black;
 	color: white;
-	width: 26em;
+	width: 10em;
 	font-family: monospace;
-	font-size: 17px;
+	font-size: 15px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
@@ -80,6 +81,7 @@ form {
 
 input[type='checkbox'] {
 	transform: scale(1.5);
+	display: flex;
 	margin: 2em;
 }
 
@@ -97,20 +99,20 @@ input[type='checkbox'] {
 // }
 
 .shopGreeting {
-	padding: 0.5em;
 	font-weight: bold;
-	margin-top: 1em;
-	background: black;
-	color: white;
-	width: 18.5em;
+	background: white;
+	color: blue;
+	width: 100vh;
+	padding: 1em;
 	font-family: monospace;
-	font-size: 17px;
+	font-size: 20px;
 	text-align: center;
 	display: flex;
 	flex-direction: column;
 }
 
 .myButton {
+	display: flex;
 	box-shadow: 2px 4px 5px -1px #eb007d;
 	// background: linear-gradient(to bottom, #eeff00 5%, #eb1a1a 100%);
 	// background-color: #eeff00;
@@ -143,7 +145,28 @@ input[type='checkbox'] {
 	// background-color: #03fa28;
 	// background-color: yellow;
 }
+
 .myButton:active {
 	position: relative;
 	top: 1px;
+}
+
+.shopFormContainer {
+	background: url('./../../images/floppydisk.png');
+	display: flex;
+	flex-direction: column;
+	flex-wrap: wrap;
+	justify-content: center;
+}
+
+.shopFormPlaceholder {
+	display: flex;
+	margin-left: 10em;
+	width: 50vh;
+}
+
+.autocomplete {
+	display: flex;
+	width: 40em;
+	color: black;
 }

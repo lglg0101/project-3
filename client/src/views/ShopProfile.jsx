@@ -125,12 +125,21 @@ export default class ShopProfile extends Component {
 						{/* CHILD 6*/}
 						<div className="contentDisplay">
 							{/* {user.isShop && ( */}
-							<div className="postContainer">
-								<PostCreateView
-									shop={this.state.shop}
-									onPostCreated={this.fetchData}
-								/>
-								<PostListView shop={this.state.shop} posts={this.state.posts} />
+							<div className="postContainer2">
+								<div>
+									{' '}
+									<PostCreateView
+										shop={this.state.shop}
+										onPostCreated={this.fetchData}
+									/>
+								</div>
+
+								<div>
+									<PostListView
+										shop={this.state.shop}
+										posts={this.state.posts}
+									/>
+								</div>
 							</div>
 							{/* )} */}
 

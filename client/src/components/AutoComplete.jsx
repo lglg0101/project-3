@@ -2,6 +2,8 @@ import React, { Component } from 'react';
 import axios from 'axios';
 import MapboxAutocomplete from 'react-mapbox-autocomplete';
 
+import './auto.scss';
+
 export default class AutocompletePlace extends Component {
 	constructor(props) {
 		super(props);

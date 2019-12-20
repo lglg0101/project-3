@@ -27,7 +27,7 @@
 
 .contentDisplay {
 	// border: 5px solid green;
-	// background: blue;
+	background: blue;
 	display: flex;
 	flex-direction: row;
 	justify-content: center;
@@ -62,13 +62,12 @@
 	display: flex;
 	justify-content: center;
 	font-family: monospace;
-	background: black;
-	color: white;
+	// background: black;
+	color: black;
 	font-size: 15px;
 	text-align: center;
-	text-decoration: none;
+	text-decoration: underline;
 	text-transform: uppercase;
-	margin: 0.5em;
 }
 
 .userPosts {
@@ -132,6 +131,7 @@
 
 .shopInfo {
 	display: flex;
+	flex-direction: column;
 	margin-top: 1em;
 }
 
