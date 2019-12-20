@@ -77,9 +77,9 @@ export default class ShopInfo extends Component {
 				{!this.state.shop._owner && (
 					<form className="ShopInfoForm" onSubmit={this.handleFormSubmission}>
 						<div className="SignUpForm">
-							<h1 className="shopGreeting">
+							{/* <h1 className="shopGreeting">
 								Hey, Shop Owner! Add Some Extra Details to Register Your Shop.
-							</h1>
+							</h1> */}
 
 							<input
 								className="shopFormPlaceholder"

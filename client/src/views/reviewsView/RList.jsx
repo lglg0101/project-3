@@ -1,6 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { Link } from 'react-router-dom';
 import './Reviews.css';
+import Rating from 'react-rating';
 
 import { list as listReviewService } from './../../services/reviews';
 
@@ -37,14 +38,17 @@ class ReviewListView extends Component {
 							>
 								<p className="reviewP">
 									{' '}
-									Shop Reviewed: {review._shop.shopName}
+									Shop Reviewed: 
 								</p>
+								<h2 className="reviewColor">{review._shop.shopName}</h2>
 								<h2 className="reviewP">
-									Reviewed By: {review._author.username}
+									Reviewed By:
 								</h2>
+								<h2 className="reviewColor"> {review._author.username}</h2>
+								<Rating/>
 								<h1 className="reviewH1">"{review.text}"</h1>
 								<img className="reviewImg" src={review.image} alt="" />
-								<h2 className="createdBy">Created At: {review.createdAt}</h2>
+								<h2 className="createdAt">Created At: {review.createdAt}</h2>
 							</Link>
 						</Fragment>
 					))}

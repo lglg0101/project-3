@@ -89,7 +89,7 @@
 	width: 40em;
 	height: 10em;
 	text-align: center;
-	background: blue;
+	background: black;
 	padding: 2em;
 }
 
@@ -135,7 +135,7 @@
 	margin-top: 1em;
 }
 
-.review .createReview {
+.createReview {
 	display: flex;
 	justify-content: start;
 	margin: auto 0;
@@ -161,4 +161,19 @@
 	background-color: red;
 	justify-content: center;
 	width: 50vw;
+}
+
+.cityContainer{
+	margin: 1em;
+	background-color: black;
+	padding: 0.5em;
+	width: 10em;
+	
+}
+
+.cityContainer h1{
+	color: white;
+	font-family: monospace;
+	font-size: 1em;
+	text-align: center;
 }

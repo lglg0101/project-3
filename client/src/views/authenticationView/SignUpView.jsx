@@ -94,6 +94,7 @@ class AuthenticationSignUpView extends Component {
 							name="city"
 							onChange={this.handleInputChange}
 						/>
+						<div className='centerThings'>
 						<label>Add a profile picture!</label>
 						<input
 							type="file"
@@ -105,13 +106,15 @@ class AuthenticationSignUpView extends Component {
 
 						<label>Add a short bio!</label>
 						<input
+						className="bio"
 							type="text"
 							placeholder="Add Information"
 							value={this.state.bio}
 							name="bio"
 							onChange={this.handleInputChange}
 						/>
-
+					
+					<div className="checkBox">
 						<label>Check Box To Register As A Shop Owner</label>
 						<input
 							className="checkbox"
@@ -120,7 +123,9 @@ class AuthenticationSignUpView extends Component {
 							checked={this.state.isShop}
 							name="isShop"
 						/>
-						<button className="signUpBtn">Sign Up</button>
+						</div>
+						</div>
+						<button className="myButton">Sign Up</button>
 					</form>
 				</div>
 			</div>

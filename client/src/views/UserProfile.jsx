@@ -84,18 +84,21 @@ export default class UserProfile extends Component {
 								<div className="picContainer">
 									<img className="profilePic" src={user.image} alt="" />
 								</div>
-
+<div className="bioAndLocation">
 								<div className="bioContainer">
 									<h1>{user.bio}</h1>
 								</div>
+								<div className="cityContainer">
+									<h1>Location: {user.city}</h1>
+								</div>
 							</div>
 						</div>
+						</div>
 
-						<div className="contentDisplay">
-							<div>
-								{' '}
-								{/* <ReviewListView reviews={this.state.reviews} /> */}
-							</div>
+						<div className="centerButton">
+							<button className="myButton">Follow Me</button>
+							<button className="myButton">My Favourites</button>
+					
 						</div>
 					</div>
 				)}

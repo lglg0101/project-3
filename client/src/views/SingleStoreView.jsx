@@ -7,6 +7,7 @@ import ReviewListView from './../views/reviewsView/RList';
 import { reviewsOfShop } from './../services/reviews';
 import PostListView from './../views/postView/PList';
 import { postsFromShop } from './../services/posts.js';
+import './Profile.scss'
 
 export default class SingleStoreView extends Component {
 	constructor(props) {

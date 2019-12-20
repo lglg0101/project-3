@@ -35,8 +35,8 @@ class ReviewSingleView extends Component {
 					<div className="ReviewSingleView">
 						<p>{review.text}</p>
 						<img src={review.image} alt=""/>
-					<Link to={`/stores/${review._shop}`}>Link to the Store</Link> 
-						<Link to={`/${id}/edit`}>Edit Review</Link>
+					<Link to={`/stores/${review._shop}`}> <h3 className='EditReviewsp'>Link to the Store</h3></Link> 
+					<Link  to={`/${id}/edit`}> <h3 className='EditReviewsp'>Delete Review</h3></Link>
 					</div>
 				)}
 			</main>
