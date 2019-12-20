@@ -10,7 +10,7 @@ router.get("/list", async (req, res, next) => {
     const reviews = await Review.find()
       .populate("_author")
       .populate("_shop")
-      .sort({ createdAt: -1 })  
+      .sort({ createdAt: -1 })
       .exec();
     // console.log("THIS IS WHERE THE BUG IS:" + reviews);
     res.json({ reviews });
@@ -47,26 +47,25 @@ router.post(
   }
 );
 
-
 router.get("/reviews-of-shop/:shopId", async (req, res, next) => {
-const shopId = req.params.shopId;
-console.log("SHOP-USER ON REVIEW ROUTE", shopId)
+  const shopId = req.params.shopId;
+  console.log("SHOP-USER ON REVIEW ROUTE", shopId);
   try {
-    const reviews = await Review.find({_shop: shopId})
-    .sort({ createdAt: -1 })
+    const reviews = await Review.find({ _shop: shopId })
+      .populate("_author")
+      .sort({ createdAt: -1 });
     console.log("RESULT OF REVIEWS", reviews);
     res.json({ reviews });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     next(error);
   }
 });
 
-router.patch('/:id', async (req, res, next) => {
+router.patch("/:id", async (req, res, next) => {
   const { text } = req.body;
   try {
     const review = await Review.findByIdAndUpdate(req.params.id, {
-     
       ...(text ? { text } : {})
     }).exec();
     res.json({ review });
@@ -75,20 +74,19 @@ router.patch('/:id', async (req, res, next) => {
   }
 });
 
-
 router.get("/:id", async (req, res, next) => {
   try {
     const review = await Review.findById(req.params.id)
-    // .populate("_author")
-    .sort({ createdAt: -1 })
-    .exec();
+      // .populate("_author")
+      .sort({ createdAt: -1 })
+      .exec();
     res.json({ review });
   } catch (error) {
     next(error);
   }
 });
 
-router.delete('/:id', async (req, res, next) => {
+router.delete("/:id", async (req, res, next) => {
   try {
     await Review.findByIdAndRemove(req.params.id).exec();
     res.json({});
@@ -96,8 +94,5 @@ router.delete('/:id', async (req, res, next) => {
     next(error);
   }
 });
-
-
-
 
 module.exports = router;
