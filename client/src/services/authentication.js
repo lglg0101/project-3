@@ -1,6 +1,6 @@
 import axios from "axios";
 const apiAuthenticationService = axios.create({
-  baseURL: "/api/authentication"
+  baseURL: "/authentication"
 });
 export const signIn = async data => {
   try {
@@ -37,14 +37,14 @@ export const signOut = async () => {
     throw error;
   }
 };
-export const loadUserInformation = async () => {
-  try {
-    const response = await apiAuthenticationService.get(`/loaduser`);
-    return response.data.user;
-  } catch (error) {
-    throw error;
-  }
-};
+// export const loadUserInformation = async () => {
+//   try {
+//     const response = await apiAuthenticationService.get(`/loaduser`);
+//     return response.data.user;
+//   } catch (error) {
+//     throw error;
+//   }
+// };
 // export const loadUserPicture = async post => {
 //   const data = new FormData();
 //   data.append("text", user.text);
