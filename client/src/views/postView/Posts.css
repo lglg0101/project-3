@@ -23,25 +23,21 @@ textarea {
 }
 
 
-
-
 .postListContainer { 
   display: flex;
   flex-direction: column;
-justify-items: center;
+  justify-items: center;
   text-align: center;
 }
 
 
 .postsContainer{
+  width: 100vw;
   display: flex;
   justify-content: center;
   flex-direction: column;
- 
   align-content: center;
   text-align: center;
-
-
 }
 
 
@@ -56,11 +52,13 @@ justify-items: center;
 }
 
 .postH1 {
+  display: flex;
   color:white;
   font-size: 1.5em;
 }
 
 .postP {
+  display: flex;
   color: white;
   font-size: 2em;
 
