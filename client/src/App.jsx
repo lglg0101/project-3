@@ -33,7 +33,7 @@ import ShopInfo from './views/authenticationView/ShopInfo';
 import Rating from 'react-rating';
 import UserProfile from './views/UserProfile';
 import ShopProfile from './views/ShopProfile';
-// import { loadUserInformation as loadUserInformationService } from './services/authentication';
+import { loadUserInformation as loadUserInformationService } from './services/authentication';
 import { shopInfo as shopInfoService } from './services/shops';
 
 class App extends Component {
@@ -52,19 +52,19 @@ class App extends Component {
 		this.shopInfoService = this.shopInfoService.bind(this);
 	}
 
-	// async componentDidMount() {
-	// 	try {
-	// 		const user = await loadUserInformationService();
-	// 		// const shop = await shopInfoService();
-	// 		this.setState({
-	// 			user,
-	// 			loaded: true
-	// 			// shop
-	// 		});
-	// 	} catch (error) {
-	// 		console.log(error);
-	// 	}
-	// }
+	async componentDidMount() {
+		try {
+			const user = await loadUserInformationService();
+			// const shop = await shopInfoService();
+			this.setState({
+				user,
+				loaded: true
+				// shop
+			});
+		} catch (error) {
+			console.log(error);
+		}
+	}
 
 	shopInfoService(shop) {
 		this.setState({
