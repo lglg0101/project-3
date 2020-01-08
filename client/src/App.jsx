@@ -55,11 +55,11 @@ class App extends Component {
 	async componentDidMount() {
 		try {
 			const user = await loadUserInformationService();
-			// const shop = await shopInfoService();
+			const shop = await shopInfoService();
 			this.setState({
 				user,
-				loaded: true
-				// shop
+				loaded: true,
+			 shop
 			});
 		} catch (error) {
 			console.log(error);
